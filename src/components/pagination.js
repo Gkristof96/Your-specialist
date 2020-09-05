@@ -1,9 +1,40 @@
 import React from "react";
 
 const Pagination = (props) => {
+  const { totalPosts, currentPage } = props;
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(totalPosts / 10); i++) {
+    pageNumbers.push(i);
+  }
   return (
     <>
-      <h1>Pagination</h1>
+      <nav className="pagination">
+        <ul>
+          <li
+            className={`${pageNumbers[0] === currentPage && "disabled"}`}
+            onClick={() => props.paginate(currentPage - 1)}
+          >
+            Previous
+          </li>
+          {pageNumbers.map((number) => (
+            <li
+              key={number}
+              className={`${currentPage === number && "active"}`}
+              onClick={() => props.paginate(number)}
+            >
+              {number}
+            </li>
+          ))}
+          <li
+            className={`${
+              pageNumbers.reverse()[0] === currentPage && "disabled"
+            }`}
+            onClick={() => props.paginate(currentPage + 1)}
+          >
+            Next
+          </li>
+        </ul>
+      </nav>
     </>
   );
 };

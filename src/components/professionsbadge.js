@@ -1,9 +1,13 @@
 import React from "react";
+import { FaTools } from "react-icons/fa";
 
 const ProfessionBadge = (props) => {
   return (
     <>
-      <h1>ProfessionsBadge</h1>
+      <div className="badge">
+        <FaTools />
+        {` ${props.profession}`}
+      </div>
     </>
   );
 };
