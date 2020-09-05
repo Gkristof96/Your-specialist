@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Index from "./pages/Index/index";
 import Header from "./components/Header/header";
+import Footer from "./components/Footer/footer";
 import "./css/style.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Switch>
           <Route path="/" component={Index} />
         </Switch>
+        <Footer />
       </Router>
     </div>
   );
