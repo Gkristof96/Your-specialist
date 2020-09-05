@@ -1,17 +1,17 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Index from "./pages/Index/index";
+import Header from "./components/Header/header";
 import "./css/style.css";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <h1>Hello there</h1>
+        <Header />
+        <Switch>
+          <Route path="/" component={Index} />
+        </Switch>
       </Router>
     </div>
   );
