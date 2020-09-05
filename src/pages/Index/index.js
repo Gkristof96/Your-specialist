@@ -48,7 +48,7 @@ const Index = () => {
             to={`/providers?city=${city}&profession=${profession}`}
             className="btn"
           >
-            <span>Keresés</span>
+            Keresés
           </Link>
         </div>
       </section>
