@@ -45,7 +45,7 @@ const Index = () => {
             items={professions}
           />
           <Link
-            to={`/providers?city=${city}&profession=${profession}`}
+            to={`/providerslist?city=${city}&profession=${profession}`}
             className="btn"
           >
             Keresés

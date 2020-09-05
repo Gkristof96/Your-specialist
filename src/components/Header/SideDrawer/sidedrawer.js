@@ -12,7 +12,7 @@ const SideDrawer = (props) => {
       <nav className={drawerClass} onClick={drawerClick}>
         <ul>
           <li>
-            <Link to="/provider">Szakemberek</Link>
+            <Link to="/providers">Szakemberek</Link>
           </li>
           <li>
             <Link to="/ajanlat">Ajánlatkérés</Link>

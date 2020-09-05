@@ -26,7 +26,7 @@ const Navbar = (props) => {
               <Link to="/contact">Kapcsolat</Link>
             </li>
             <li className="auth">
-              <Link to="/contact">Bejelentkezés</Link>
+              <Link to="/login">Bejelentkezés</Link>
             </li>
           </ul>
         </div>
