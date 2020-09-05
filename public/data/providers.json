@@ -1,0 +1,9 @@
+{
+  "professions": {
+    "Oktatás": ["Tanár", "Tanársegéd"],
+    "Építkezés": ["Kőműves", "Ács", "Burkoló", "Festő"],
+    "Szerelés": ["Autószerelő", "Villanyszerelő", "Vízvezetékszerelő"],
+    "Szépség": ["Fodrász", "Kozmetikus", "Műkörmös"],
+    "Egészség": ["Masszőr", "Orvos", "Fogorvos", "Személyiedző", "Diatetikus"]
+  }
+}
