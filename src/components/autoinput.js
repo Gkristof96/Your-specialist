@@ -22,7 +22,12 @@ const AutoSearch = (props) => {
   return (
     <>
       <div className="autoComplete">
-        <input value={search} type="text" onChange={onTextChange} />
+        <input
+          onFocus={() => setSearch("")}
+          value={search}
+          type="text"
+          onChange={onTextChange}
+        />
         <Suggestion
           suggestions={suggestions}
           suggestionChanged={suggestionChanged}

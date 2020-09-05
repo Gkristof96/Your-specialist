@@ -3,19 +3,27 @@ import AutoSearch from "../../components/autoinput";
 import Pagination from "../../components/pagination";
 import ProviderCard from "../../components/providercard";
 import Loading from "../../components/loading";
+import { useLocation } from "react-router-dom";
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+const ProvidersList = ({ location }) => {
+  let query = useQuery();
 
-const ProvidersList = () => {
   const [loading, setLoading] = useState(true);
-  const [city, setCity] = useState("");
-  const [profession, setProfession] = useState("");
+  const [city, setCity] = useState(query.get("city"));
+  const [profession, setProfession] = useState(query.get("profession"));
   const [users, setUsers] = useState([]);
   const [cities, setCities] = useState([]);
   const [professions, setProfessions] = useState([]);
+  const [search, setSearch] = useState({ city: "", profession: "" });
 
   const urlCities = "data/cities.json";
   const urlProfessions = "data/professions.json";
   const urlUsers = "../data/users.json";
-
+  const handleClick = () => {
+    setSearch({ city: city, profession: profession });
+  };
   async function fetchData() {
     const response = await fetch(urlUsers);
     const data = await response.json();
@@ -38,7 +46,7 @@ const ProvidersList = () => {
     fetchData();
     fetchCities();
     fetchProfessions();
-  }, []);
+  }, [search]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const paginate = (pageNumber) => {
@@ -62,7 +70,7 @@ const ProvidersList = () => {
             setSearch={setProfession}
             items={professions}
           />
-          <button>Keresés</button>
+          <button onClick={() => handleClick()}>Keresés</button>
         </div>
         <div className="pvlist__content">
           {loading ? (
