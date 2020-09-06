@@ -3,7 +3,12 @@ import React from "react";
 const Profile = () => {
   return (
     <>
-      <h1>Profile page</h1>
+      <section className="profile">
+        <div classsName="profile__header"></div>
+        <div className="profile__sidebar"></div>
+        <nav></nav>
+        <div className="profile__content"></div>
+      </section>
     </>
   );
 };

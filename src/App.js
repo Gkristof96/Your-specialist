@@ -7,6 +7,7 @@ import Contact from "./pages/Contact/contact";
 import Providers from "./pages/Providers/providers";
 import Ajanlat from "./pages/Ajanlat/ajanlat";
 import Profile from "./pages/Profile/profile";
+import Settings from "./pages/Settings/settings";
 import ProvidersList from "./pages/ProvidersList/providerslist";
 import Authentication from "./pages/Authentication/authentication";
 import Header from "./components/Header/header";
@@ -73,6 +74,16 @@ function App() {
                 {...props}
                 loggedInStatus={loggedInStatus}
                 handleLogout={handleLogout}
+                user={user}
+              />
+            )}
+          />
+          <Route
+            path="/profile/:id/settings"
+            render={(props) => (
+              <Settings
+                {...props}
+                loggedInStatus={loggedInStatus}
                 user={user}
               />
             )}

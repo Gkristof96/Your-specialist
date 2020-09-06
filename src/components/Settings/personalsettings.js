@@ -1,5 +1,4 @@
 import React from "react";
-import ProfessionList from "../professionlist";
 
 const PersonalSettings = (props) => {
   return (
