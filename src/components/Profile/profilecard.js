@@ -17,6 +17,9 @@ const ProfileCard = (props) => {
             <FaMapMarkerAlt size="25" />
             Hungary, Lajosmizse
           </h2>
+          <button onClick={() => setSetting(!isSetting)}>
+            {isSetting ? "Home" : "Settings"}
+          </button>
         </div>
         <div className="profile__sidebard"></div>
         <div className="profile__navbar">

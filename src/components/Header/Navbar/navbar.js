@@ -17,11 +17,11 @@ const Navbar = (props) => {
               <Link to="/providers">Szakemberek</Link>
             </li>
             <li>
-              <Link to="/ajanlat">Ajánlatkérés</Link>
+              <Link to="/offer">Ajánlatkérés</Link>
             </li>
-            <li>
+            {/*<li>
               <Link to="/about">Rólunk</Link>
-            </li>
+            </li>*/}
             <li>
               <Link to="/contact">Kapcsolat</Link>
             </li>

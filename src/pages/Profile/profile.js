@@ -14,8 +14,8 @@ const Profile = (props) => {
       .get("../data/users.json")
       .then((response) => {
         console.log(response);
-        setUser(response.data);
-        //setLoading(false);
+        setUser(response.data[id]);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -23,6 +23,7 @@ const Profile = (props) => {
   };
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   return (

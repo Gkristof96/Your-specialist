@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Index from "./pages/Index/index";
 import NotFound from "./pages/404/404";
-import About from "./pages/About/about";
+// import About from "./pages/About/about";
 import Contact from "./pages/Contact/contact";
 import Providers from "./pages/Providers/providers";
-import Ajanlat from "./pages/Ajanlat/ajanlat";
+import Offer from "./pages/Ajanlat/offer";
 import Profile from "./pages/Profile/profile";
 import Settings from "./pages/Settings/settings";
 import ProvidersList from "./pages/ProvidersList/providerslist";
@@ -45,7 +45,7 @@ function App() {
   };
 
   useEffect(() => {
-    // checkLoginStatus();
+    checkLoginStatus();
     // eslint-disable-next-line
   }, []);
   return (
@@ -54,10 +54,10 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={Index} />
-          <Route path="/about" component={About} />
+          {/*<Route path="/about" component={About} />*/}
           <Route path="/contact" component={Contact} />
           <Route path="/providers" component={Providers} />
-          <Route path="/ajanlat" component={Ajanlat} />
+          <Route path="/offer" component={Offer} />
           <Route
             path="/login"
             render={(props) => (
