@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import ProfileCard from "../../components/Profile/profilecard";
+import Loading from "../../components/loading";
+import axios from "axios";
 
-const Profile = () => {
+const Profile = (props) => {
+  const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState({});
+
+  const fetchData = () => {
+    axios
+      .get("../data/users.json")
+      .then((response) => {
+        console.log(response);
+        setUser(response.data);
+        //setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
-      <section className="profile">
-        <div classsName="profile__header"></div>
-        <div className="profile__sidebar"></div>
-        <nav></nav>
-        <div className="profile__content"></div>
-      </section>
+      {loading ? (
+        <Loading />
+      ) : (
+        <ProfileCard user={user} handleLogout={props.handleLogout} />
+      )}
     </>
   );
 };

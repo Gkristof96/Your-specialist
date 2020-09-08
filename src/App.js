@@ -14,7 +14,7 @@ import Header from "./components/Header/header";
 import Footer from "./components/Footer/footer";
 
 import "./css/style.css";
-import Axios from "axios";
+import axios from "axios";
 
 function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
@@ -30,7 +30,8 @@ function App() {
   };
 
   const checkLoginStatus = () => {
-    Axios.get("url", { withCredentials: true })
+    axios
+      .get("url", { withCredentials: true })
       .then((response) => {
         if (response.data.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
           handleLogin();
@@ -44,7 +45,7 @@ function App() {
   };
 
   useEffect(() => {
-    checkLoginStatus();
+    // checkLoginStatus();
     // eslint-disable-next-line
   }, []);
   return (
@@ -67,17 +68,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/profile/:id"
-            render={(props) => (
-              <Profile
-                {...props}
-                loggedInStatus={loggedInStatus}
-                handleLogout={handleLogout}
-                user={user}
-              />
-            )}
-          />
+          <Route path="/profile/:id" component={Profile} />
           <Route
             path="/profile/:id/settings"
             render={(props) => (

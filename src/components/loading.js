@@ -3,7 +3,10 @@ import React from "react";
 const Loading = (props) => {
   return (
     <>
-      <h1>Loading...</h1>
+      <h1>
+        <img src="../images/loading.gif" alt="loading" />
+        Loading
+      </h1>
     </>
   );
 };

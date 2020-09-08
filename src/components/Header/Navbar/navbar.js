@@ -8,7 +8,7 @@ const Navbar = (props) => {
     <>
       <nav className="navbar">
         <div className="navbar__logo">
-          <img src="images/logo.png" alt="logo" />
+          <img src="../images/logo.png" alt="logo" />
           <h1 className="title">Your specialist</h1>
         </div>
         <div className="navbar__navigation">
