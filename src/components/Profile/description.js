@@ -1,9 +1,11 @@
 import React from "react";
 
-const Description = (props) => {
+const Description = ({ bio }) => {
   return (
     <>
-      <h1>Description</h1>
+      <div>
+        <p>{bio}</p>
+      </div>
     </>
   );
 };

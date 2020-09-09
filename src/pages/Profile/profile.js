@@ -13,13 +13,11 @@ const Profile = (props) => {
     const data = await response.json();
     setUser(data[id - 1]);
     setLoading(false);
-    console.log(user);
   }
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line
   }, []);
-
   return (
     <>
       {loading ? (

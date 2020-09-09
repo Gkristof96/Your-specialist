@@ -7,9 +7,9 @@ const ContentPage = (props) => {
   const { step, user } = props;
   switch (step) {
     case 1:
-      return <Description user={user} />;
+      return <Description bio={user.bio} />;
     case 2:
-      return <Gallery user={user} />;
+      return <Gallery gallery={user.gallery} />;
     case 3:
       return <Rating user={user} />;
     default:

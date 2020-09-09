@@ -1,5 +1,6 @@
 import React from "react";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const List = (props) => {
   const { name, professions } = props.data;
@@ -9,7 +10,9 @@ const List = (props) => {
         <FaArrowAltCircleLeft onClick={() => props.handleClick()} />
         <h1>{name}</h1>
         {professions.map((data, i) => (
-          <h4 key={i}>{data}</h4>
+          <Link to={`/providerslist?profession=${data}`} key={i}>
+            {data}
+          </Link>
         ))}
       </div>
     </>
