@@ -7,7 +7,6 @@ import Contact from "./pages/Contact/contact";
 import Providers from "./pages/Providers/providers";
 import Offer from "./pages/Ajanlat/offer";
 import Profile from "./pages/Profile/profile";
-import Settings from "./pages/Settings/settings";
 import ProvidersList from "./pages/ProvidersList/providerslist";
 import Authentication from "./pages/Authentication/authentication";
 import Header from "./components/Header/header";
@@ -69,16 +68,6 @@ function App() {
             )}
           />
           <Route path="/profile/:id" component={Profile} />
-          <Route
-            path="/profile/:id/settings"
-            render={(props) => (
-              <Settings
-                {...props}
-                loggedInStatus={loggedInStatus}
-                user={user}
-              />
-            )}
-          />
           <Route path="/providerslist" component={ProvidersList} />
           <Route component={NotFound} />
         </Switch>

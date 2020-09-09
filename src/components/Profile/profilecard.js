@@ -1,27 +1,54 @@
 import React, { useState } from "react";
 import ContentPage from "./contentpage";
 import SettingPage from "../Settings/settingpage";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import ProfessionBadge from "../professionsbadge";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import StaticStar from "../staticstar";
 
 const ProfileCard = (props) => {
   const [step, setStep] = useState(1);
   const [isSetting, setSetting] = useState(false);
-  const { user } = props;
+  const {
+    firstname,
+    lastname,
+    city,
+    tel,
+    email,
+    rate,
+    image,
+    professions,
+  } = props.user;
   return (
     <>
       <section className="profile">
         <div className="profile__header">
-          <div className="profile__picture"></div>
-          <h1>Steve speros</h1>
+          <div className="profile__picture">
+            <img src={`../${image}`} alt={image} />
+          </div>
+          <h1>{`${firstname} ${lastname}`}</h1>
           <h2>
             <FaMapMarkerAlt size="25" />
-            Hungary, Lajosmizse
+            {`Hungary, ${city}`}
           </h2>
           <button onClick={() => setSetting(!isSetting)}>
             {isSetting ? "Home" : "Settings"}
           </button>
         </div>
-        <div className="profile__sidebard"></div>
+        <div className="profile__sidebard">
+          <StaticStar rating={rate} />
+          <h1>{rate}</h1>
+          <span>
+            <FaPhoneAlt size="25" />
+            {tel}
+          </span>
+          <span>
+            <FaEnvelope size="25" />
+            {email}
+          </span>
+          {professions.map((profession, i) => (
+            <ProfessionBadge key={i} profession={profession} />
+          ))}
+        </div>
         <div className="profile__navbar">
           {isSetting ? (
             <>
@@ -40,9 +67,9 @@ const ProfileCard = (props) => {
         </div>
         <div className="profile__content">
           {isSetting ? (
-            <SettingPage step={step} user={user} />
+            <SettingPage step={step} user={props.user} />
           ) : (
-            <ContentPage step={step} user={user} />
+            <ContentPage step={step} user={props.user} />
           )}
         </div>
       </section>
