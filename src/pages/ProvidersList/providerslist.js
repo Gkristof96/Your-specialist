@@ -4,6 +4,8 @@ import Pagination from "../../components/pagination";
 import ProviderCard from "../../components/providercard";
 import Loading from "../../components/loading";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -18,32 +20,39 @@ const ProvidersList = ({ location }) => {
   const [professions, setProfessions] = useState([]);
   const [search, setSearch] = useState({ city: "", profession: "" });
 
-  const urlCities = "data/cities.json";
-  const urlProfessions = "data/professions.json";
-  const urlUsers = "../data/users.json";
   const handleClick = () => {
     setSearch({ city: city, profession: profession });
   };
-  async function fetchData() {
-    const response = await fetch(urlUsers);
-    const data = await response.json();
-    setUsers(data);
-    setLoading(false);
+  async function fetchProviders() {
+    await axios
+      .get("../data/users.json")
+      .then((response) => {
+        setUsers(response.data);
+        setLoading(false);
+      })
+      .catch((error) => console.log(error));
   }
 
   async function fetchCities() {
-    const response = await fetch(urlCities);
-    const data = await response.json();
-    setCities(data.cities);
+    await axios
+      .get("data/cities.json")
+      .then((response) => {
+        setCities(response.data);
+      })
+      .catch((error) => console.log(error));
   }
 
   async function fetchProfessions() {
-    const response = await fetch(urlProfessions);
-    const data = await response.json();
-    setProfessions(data.professions);
+    await axios
+      .get("data/professions.json")
+      .then((response) => {
+        setProfessions(response.data);
+      })
+      .catch((error) => console.log(error));
   }
+
   useEffect(() => {
-    fetchData();
+    fetchProviders();
     fetchCities();
     fetchProfessions();
   }, [search]);

@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from "react";
 import Photo from "../../components/photo";
 import List from "../../components/list";
+import axios from "axios";
 
 const Providers = () => {
   const [providers, setProviders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showList, setShowList] = useState(false);
   const [listData, setListData] = useState({});
-  async function fetchData() {
-    const response = await fetch("data/providers.json");
-    const data = await response.json();
-    setProviders(data);
-    setLoading(false);
+
+  async function fetchProviders() {
+    await axios
+      .get("data/providers.json")
+      .then((response) => {
+        setProviders(response.data);
+        setLoading(false);
+      })
+      .catch((error) => console.log(error));
   }
 
   useEffect(() => {
-    fetchData();
+    fetchProviders();
     // eslint-disable-next-line
   }, []);
 

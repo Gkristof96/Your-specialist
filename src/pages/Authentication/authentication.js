@@ -11,12 +11,15 @@ const Authentication = (props) => {
   return (
     <>
       <h1>Authentication page</h1>
-      <Login
-        handleLogin={handleAuth}
-        loginActive={loginActive}
-        setLoginActive={setLoginActive}
-      />
-      <Registration handleAuth={handleAuth} />
+      {loginActive ? (
+        <Login
+          handleLogin={handleAuth}
+          loginActive={loginActive}
+          setLoginActive={setLoginActive}
+        />
+      ) : (
+        <Registration handleAuth={handleAuth} />
+      )}
     </>
   );
 };

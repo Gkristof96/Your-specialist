@@ -5,7 +5,7 @@ const ImageItem = ({ image, click }) => {
     <div className="image-container">
       <img
         onClick={(e) => click(e.target)}
-        src={`../images/gallery/${image}`}
+        src={`../${image}`}
         className="image"
         alt={image}
       />

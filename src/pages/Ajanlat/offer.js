@@ -30,7 +30,7 @@ const Offer = () => {
   const onSubmit = (data) => {
     axios
       .post("url", {
-        offe: {
+        offer: {
           name: data.name,
           email: data.email,
           description: data.description,
