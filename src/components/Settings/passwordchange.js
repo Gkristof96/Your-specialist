@@ -18,7 +18,7 @@ const PasswordChange = () => {
             <label>Új jelszó újra</label>
             <input name="newpasswordc" type="password" />
           </div>
-          <input type="submit" value="Mentés" />
+          <input className="btn" type="submit" value="Mentés" />
         </form>
       </div>
     </>

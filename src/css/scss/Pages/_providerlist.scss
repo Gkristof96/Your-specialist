@@ -1,0 +1,45 @@
+.pvlist {
+  width: 100%;
+  position: relative;
+  .container {
+    .search {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    & > div {
+      width: 100%;
+    }
+    .content {
+      margin: 1rem 0;
+    }
+    .pagination {
+      padding: 1rem 0;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+.pvheader {
+  width: 100%;
+  height: 35vh;
+  background: linear-gradient(
+      135deg,
+      rgba(255, 193, 69, 0.4) 0%,
+      rgba(255, 193, 69, 0.4) 100%
+    ),
+    url("../Images/background.jpg") center no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 65%;
+    background: url("../Images/wave.svg") center no-repeat;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-size: cover;
+  }
+}

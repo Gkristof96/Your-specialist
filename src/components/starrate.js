@@ -12,6 +12,7 @@ const StarRate = (props) => {
         return (
           <label>
             <input
+              className="input"
               type="radio"
               name="rating"
               value={ratingValue}
@@ -20,7 +21,7 @@ const StarRate = (props) => {
             <FaStar
               className="star"
               size={100}
-              color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
+              color={ratingValue <= (hover || rating) ? "#ffc145" : "#D3CDCD"}
               onMouseOver={() => setHover(ratingValue)}
               onMouseOut={() => setHover(null)}
             />

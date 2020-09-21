@@ -35,15 +35,25 @@ const Providers = () => {
         <h1>Loading</h1>
       ) : (
         <section className="providers">
-          {showList ? (
-            <List handleClick={setShowList} data={listData} />
-          ) : (
-            <div>
-              {providers.map((provider, i) => (
-                <Photo handleClick={handleClick} key={i} provider={provider} />
-              ))}
+          <div className="container">
+            <div
+              className={`provider-card ${showList ? "list" : "categories"}`}
+            >
+              {showList ? (
+                <List setShowList={setShowList} data={listData} />
+              ) : (
+                <div className="providers-content">
+                  {providers.map((provider, i) => (
+                    <Photo
+                      handleClick={handleClick}
+                      key={i}
+                      provider={provider}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </section>
       )}
     </>

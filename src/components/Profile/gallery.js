@@ -23,7 +23,7 @@ const Gallery = (props) => {
     <>
       <div className="gallery">
         <div className="gallery__arrow--left" onClick={handleLeftClick}>
-          <FaAngleLeft size="50" color="white" />
+          <FaAngleLeft size="50" />
         </div>
         <div className="gallery__content">
           <div
@@ -36,7 +36,7 @@ const Gallery = (props) => {
           </div>
         </div>
         <div className="gallery__arrow--right" onClick={handleRightClick}>
-          <FaAngleRight size="50" color="white" />
+          <FaAngleRight size="50" />
         </div>
         {visible ? <PopUp setVisible={setVisible} source={source} /> : ""}
       </div>

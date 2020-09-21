@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "image": "images/profile/image2.jpg",
+    "image": "images/profile/profile.png",
     "firstname": "Antal",
     "lastname": "Nagy",
     "email": "nagy.antal@gmail.com",
     "city": "Győr",
     "professions": ["Kovács", "Asztalos", "Pap", "Tanár", "Cukrász"],
-    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis velit. Sed quis sem nec turpis mollis pulvinar. Quisque vel magna non enim pulvinar accumsan. Nullam pulvinar odio sed ultricies imperdiet. Nullam aliquet sit amet magna et maximus. Vestibulum porttitor vitae dui eget facilisis. Nulla sit amet dapibus enim, a dignissim risus. Cras rhoncus arcu quis convallis pulvinar. Donec vitae dui elit. Ut at ultricies libero. Suspendisse nunc mauris, dapibus ac lectus sed, venenatis ornare ante. Vestibulum ullamcorper risus et mi ultrices accumsan. Nunc sagittis lacinia sapien, ut ullamcorper velit iaculis id. Nullam quam risus, viverra in pellentesque id, finibus quis sem. Ut in scelerisque ipsum. Aenean faucibus tellus quis tincidunt pulvinar.",
+    "bio": "Lorem ipsum dolor sit ametconseolor sit ametconsectetursconsectetur adipiscing elit. Donec ac convallis velit. Sed quis sem nec turpis mollis pulvinar. Quisque vel magolor sit ametconsectetursconsectetur adipiscing elit. Donec ac convallis velit. Sed quis sem nec turpis mollis pulvinar. Quisque vel magolor sit ametconsectetursconsectetur adipiscing elit. Donec ac convallis velit. Sed quis sem nec turpis mollis pulvinar. Quisque vel magolor sit ametconsectetursconsectetur adipiscing elit. Donec ac convallis velit. Sed quis sem nec turpis mollis pulvinar. Quisque vel magolor sit ametconsectetursconsectetur adipiscing elit. Donec ac convallis velit. Sed quis sem nec turpis mollis pulvinar. Quisque vel magolor sit ametconsectetursconsectetur adipiscing elit. Donec ac convallis velit. Sed quis sem nec turpis mollis pulvinar. Quisque vel magolor sit ametconsectetursconsectetur adipiscing elit. Donec ac convallis velit. Sed quis sem nec turpis mollis pulvinar. Quisque vel magolor sit ametconsectetursconsectetur adipiscing elit. Donec ac convallis velit. Sed quis sem nec turpis mollis pulvinar. Quisque vel magctetursconsectetur adipiscing elit. Donec ac convallis velit. Sed quis sem nec turpis mollis pulvinar. Quisque vel magna non enim pulvinar accumsan. Nullam pulvinar odio sed ultricies imperdiet. Nullam aliquet sit amet magna et maximus. Vestibulum porttitor vitae dui eget facilisis. Nulla sit amet dapibus enim, a dignissim risus. Cras rhoncus arcu quis convallis pulvinar. Donec vitae dui elit. Ut at ultricies libero. Suspendisse nunc mauris, dapibus ac lectus sed, venenatis ornare ante. Vestibulum ullamcorper risus et mi ultrices accumsan. Nunc sagittis lacinia sapien, ut ullamcorper velit iaculis id. Nullam quam risus, viverra in pellentesque id, finibus quis sem. Ut in scelerisque ipsum. Aenean faucibus tellus quis tincidunt pulvinar.",
     "tel": "06 30 834 2345",
     "gallery": [
       "images/gallery/gallery1.jpg",

@@ -1,0 +1,49 @@
+// Functions
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+  &__navigation {
+    ul {
+      display: flex;
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: color(text);
+
+      &:hover,
+      &:active {
+        color: color(primary-dark);
+      }
+    }
+    li {
+      padding: 1rem;
+    }
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    img {
+      height: 8vh;
+      width: 8vh;
+    }
+    h1 {
+      font-size: 36px;
+      margin-left: 1rem;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  &__hamburger {
+    margin: 1rem;
+  }
+}

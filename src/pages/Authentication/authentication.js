@@ -10,16 +10,19 @@ const Authentication = (props) => {
   };
   return (
     <>
-      <h1>Authentication page</h1>
-      {loginActive ? (
-        <Login
-          handleLogin={handleAuth}
-          loginActive={loginActive}
-          setLoginActive={setLoginActive}
-        />
-      ) : (
-        <Registration handleAuth={handleAuth} />
-      )}
+      <section className="authentication">
+        <div className="container">
+          {loginActive ? (
+            <Login
+              handleLogin={handleAuth}
+              loginActive={loginActive}
+              setLoginActive={setLoginActive}
+            />
+          ) : (
+            <Registration handleAuth={handleAuth} />
+          )}
+        </div>
+      </section>
     </>
   );
 };

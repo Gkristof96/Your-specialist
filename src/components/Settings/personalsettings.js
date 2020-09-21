@@ -34,7 +34,7 @@ const PersonalSettings = (props) => {
             <label>Leírás</label>
             <textarea name="description" />
           </div>
-          <input type="submit" value="Mentés" />
+          <input className="btn" type="submit" value="Mentés" />
         </form>
       </div>
     </>

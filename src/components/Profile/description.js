@@ -3,7 +3,7 @@ import React from "react";
 const Description = ({ bio }) => {
   return (
     <>
-      <div>
+      <div className="description">
         <p>{bio}</p>
       </div>
     </>

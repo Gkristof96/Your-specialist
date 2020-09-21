@@ -1,0 +1,47 @@
+// Functions
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+.sidedrawer {
+  width: 50%;
+  height: 100%;
+  background-color: color(primary-dark);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+  ul {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    li {
+      padding: 2rem 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-bottom: 0.5px solid grey;
+      a {
+        font-size: 1.2rem;
+        color: white;
+        text-decoration: none;
+      }
+      &:first-child {
+        border-top: 0.5px solid grey;
+      }
+      &:hover,
+      &:active {
+        cursor: pointer;
+        background-color: color(primary-darker);
+      }
+    }
+  }
+  &.open {
+    transform: translateX(0);
+  }
+}

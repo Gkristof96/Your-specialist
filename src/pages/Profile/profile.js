@@ -26,11 +26,15 @@ const Profile = (props) => {
   }, []);
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <ProfileCard user={user} handleLogout={props.handleLogout} />
-      )}
+      <section className="profile">
+        <div className="container">
+          {loading ? (
+            <Loading />
+          ) : (
+            <ProfileCard user={user} handleLogout={props.handleLogout} />
+          )}
+        </div>
+      </section>
     </>
   );
 };

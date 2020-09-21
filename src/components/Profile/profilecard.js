@@ -2,13 +2,28 @@ import React, { useState } from "react";
 import ContentPage from "./contentpage";
 import SettingPage from "../Settings/settingpage";
 import ProfessionBadge from "../professionsbadge";
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { BsFillGearFill, BsFillHouseDoorFill } from "react-icons/bs";
+import { FiLogOut } from "react-icons/fi";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaImages,
+  FaRegFileAlt,
+  FaStarHalfAlt,
+  FaUser,
+  FaShieldAlt,
+  FaWrench,
+} from "react-icons/fa";
 import StaticStar from "../staticstar";
 
-const ProfileCard = (props) => {
+const ProfileCard = ({ user }) => {
   const [step, setStep] = useState(1);
   const [isSetting, setSetting] = useState(false);
+  const logged_in = true;
+  const identical = 2;
   const {
+    id,
     firstname,
     lastname,
     city,
@@ -17,12 +32,12 @@ const ProfileCard = (props) => {
     rate,
     image,
     professions,
-  } = props.user;
+  } = user;
   return (
     <>
-      <section className="profile">
-        <div className="profile__header">
-          <div className="profile__picture">
+      <div className="profile-card">
+        <div className="header">
+          <div className="picture">
             <img src={`../${image}`} alt={image} />
           </div>
           <h1>{`${firstname} ${lastname}`}</h1>
@@ -30,49 +45,84 @@ const ProfileCard = (props) => {
             <FaMapMarkerAlt size="25" />
             {`Hungary, ${city}`}
           </h2>
-          <button onClick={() => setSetting(!isSetting)}>
-            {isSetting ? "Home" : "Settings"}
-          </button>
-        </div>
-        <div className="profile__sidebard">
-          <StaticStar rating={rate} />
-          <h1>{rate}</h1>
-          <span>
-            <FaPhoneAlt size="25" />
-            {tel}
-          </span>
-          <span>
-            <FaEnvelope size="25" />
-            {email}
-          </span>
-          {professions.map((profession, i) => (
-            <ProfessionBadge key={i} profession={profession} />
-          ))}
-        </div>
-        <div className="profile__navbar">
-          {isSetting ? (
+          {logged_in && id === identical ? (
             <>
-              <h1 onClick={() => setStep(1)}>Személyes</h1>
-              <h1 onClick={() => setStep(2)}>Szakmai</h1>
-              <h1 onClick={() => setStep(3)}>jelszó</h1>
-              <h1 onClick={() => setStep(4)}>galléria</h1>
+              <button className="gear" onClick={() => setSetting(!isSetting)}>
+                {isSetting ? (
+                  <BsFillHouseDoorFill size="25" />
+                ) : (
+                  <BsFillGearFill size="25" />
+                )}
+              </button>
+              <button className="log" onClick={() => setSetting(!isSetting)}>
+                <FiLogOut size="25" />
+              </button>
             </>
-          ) : (
-            <>
-              <h1 onClick={() => setStep(1)}>Description</h1>
-              <h1 onClick={() => setStep(2)}>Gallery</h1>
-              <h1 onClick={() => setStep(3)}>Rating</h1>
-            </>
-          )}
+          ) : null}
         </div>
-        <div className="profile__content">
-          {isSetting ? (
-            <SettingPage step={step} user={props.user} />
-          ) : (
-            <ContentPage step={step} user={props.user} />
-          )}
+        <div className="main">
+          <div className="sidebar">
+            <div className="sidebar-container">
+              <dis className="rating">
+                <StaticStar rating={rate} />
+              </dis>
+              <div className="contact">
+                <span>
+                  <FaPhoneAlt size="25" />
+                  {tel}
+                </span>
+                <span>
+                  <FaEnvelope size="25" />
+                  {email}
+                </span>
+              </div>
+              <div className="professions">
+                <h1>Szakmák:</h1>
+                {professions.map((profession, i) => (
+                  <ProfessionBadge key={i} profession={profession} />
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="navbar">
+            {isSetting ? (
+              <>
+                <h1 onClick={() => setStep(1)}>
+                  <FaUser size="40" className="nav-icons" />
+                </h1>
+                <h1 onClick={() => setStep(2)}>
+                  <FaWrench size="40" className="nav-icons" />
+                </h1>
+                <h1 onClick={() => setStep(3)}>
+                  <FaShieldAlt size="40" className="nav-icons" />
+                </h1>
+                <h1 onClick={() => setStep(4)}>
+                  <FaImages size="40" className="nav-icons" />
+                </h1>
+              </>
+            ) : (
+              <>
+                <h1 onClick={() => setStep(1)}>
+                  <FaRegFileAlt size="40" className="nav-icons" />
+                </h1>
+                <h1 onClick={() => setStep(2)}>
+                  <FaImages size="40" className="nav-icons" />
+                </h1>
+                <h1 onClick={() => setStep(3)}>
+                  <FaStarHalfAlt size="40" className="nav-icons" />
+                </h1>
+              </>
+            )}
+          </div>
+          <div className="content">
+            {isSetting ? (
+              <SettingPage step={step} user={user} />
+            ) : (
+              <ContentPage step={step} user={user} />
+            )}
+          </div>
         </div>
-      </section>
+      </div>
     </>
   );
 };

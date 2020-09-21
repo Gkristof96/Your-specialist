@@ -1,0 +1,15 @@
+.image-container {
+  width: 680px;
+  max-width: 680px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  .image {
+    height: 440px;
+    width: auto;
+    max-width: 95%;
+    border: 5px solid black;
+  }
+}

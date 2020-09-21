@@ -31,8 +31,8 @@ const Login = (props) => {
   };
   return (
     <>
-      <div className="login">
-        <h1>Bejelentkezés</h1>
+      <div className="login-card">
+        <h1 className="login-card__title">Bejelentkezés</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="input-group">
             <label>Felhasználónév</label>
@@ -62,7 +62,7 @@ const Login = (props) => {
               </p>
             )}
           </div>
-          <input type="submit" value="Bejelentkezés" />
+          <input className="btn" type="submit" value="Bejelentkezés" />
         </form>
         <span className="login__register-redirect">
           Még nincs felhasználód? Kattints a{" "}

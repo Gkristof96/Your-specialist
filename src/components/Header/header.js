@@ -11,8 +11,10 @@ const Header = () => {
   return (
     <>
       <header>
-        <Navbar drawerClick={drawerClickHandler} open={isDrawerOpen} />
-        <SideDrawer drawerClick={drawerClickHandler} open={isDrawerOpen} />
+        <div className="container">
+          <Navbar drawerClick={drawerClickHandler} open={isDrawerOpen} />
+          <SideDrawer drawerClick={drawerClickHandler} open={isDrawerOpen} />
+        </div>
       </header>
     </>
   );

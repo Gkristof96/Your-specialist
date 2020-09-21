@@ -32,25 +32,22 @@ const ProvidersList = ({ location }) => {
       })
       .catch((error) => console.log(error));
   }
-
   async function fetchCities() {
     await axios
-      .get("data/cities.json")
+      .get("../data/cities.json")
       .then((response) => {
-        setCities(response.data);
+        setCities(response.data.cities);
       })
       .catch((error) => console.log(error));
   }
-
   async function fetchProfessions() {
     await axios
-      .get("data/professions.json")
+      .get("../data/professions.json")
       .then((response) => {
-        setProfessions(response.data);
+        setProfessions(response.data.professions);
       })
       .catch((error) => console.log(error));
   }
-
   useEffect(() => {
     fetchProviders();
     fetchCities();
@@ -71,33 +68,38 @@ const ProvidersList = ({ location }) => {
   const currentPost = users.slice(indexOfFirstPost, indexOfLastPost);
   return (
     <>
+      <section className="pvheader"></section>
       <section className="pvlist">
-        <div className="pvlist__search">
-          <AutoSearch search={city} setSearch={setCity} items={cities} />
-          <AutoSearch
-            search={profession}
-            setSearch={setProfession}
-            items={professions}
-          />
-          <button onClick={() => handleClick()}>Keresés</button>
-        </div>
-        <div className="pvlist__content">
-          {loading ? (
-            <Loading />
-          ) : (
-            <div className="provider-container">
-              {currentPost.map((user) => (
-                <ProviderCard key={user.id} user={user} />
-              ))}
-            </div>
-          )}
-        </div>
-        <div className="pvlist__pagination">
-          <Pagination
-            totalPosts={users.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
+        <div className="container">
+          <div className="search">
+            <AutoSearch search={city} setSearch={setCity} items={cities} />
+            <AutoSearch
+              search={profession}
+              setSearch={setProfession}
+              items={professions}
+            />
+            <button className="btn" onClick={() => handleClick()}>
+              Keresés
+            </button>
+          </div>
+          <div className="content">
+            {loading ? (
+              <Loading />
+            ) : (
+              <div className="provider-container">
+                {currentPost.map((user) => (
+                  <ProviderCard key={user.id} user={user} />
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="pagination">
+            <Pagination
+              totalPosts={users.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
+          </div>
         </div>
       </section>
     </>

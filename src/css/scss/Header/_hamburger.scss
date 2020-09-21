@@ -1,0 +1,48 @@
+// Functions
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+.toggle-button {
+  height: 24px;
+  width: 30px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+  border: none;
+  .line {
+    width: 30px;
+    height: 3px;
+    border-radius: 1px;
+    background-color: color(text);
+    transition: 0.5s ease-in-out;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    .one {
+      transform: translateY(-2px);
+    }
+
+    .three {
+      transform: translateY(2px);
+    }
+  }
+
+  &.open {
+    .one {
+      transform: translateY(0.6em) rotate(225deg);
+    }
+    .two {
+      opacity: 0;
+    }
+    .three {
+      transform: translateY(-0.6em) rotate(-225deg);
+    }
+  }
+}

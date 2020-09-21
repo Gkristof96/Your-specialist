@@ -7,10 +7,12 @@ const Navbar = (props) => {
   return (
     <>
       <nav className="navbar">
-        <div className="navbar__logo">
-          <img src="../images/logo.png" alt="logo" />
-          <h1 className="title">Your specialist</h1>
-        </div>
+        <Link to="/">
+          <div className="navbar__logo">
+            <img src="../images/logo.png" alt="logo" />
+            <h1 className="title">Your specialist</h1>
+          </div>
+        </Link>
         <div className="navbar__navigation">
           <ul>
             <li>
@@ -25,7 +27,8 @@ const Navbar = (props) => {
             <li>
               <Link to="/contact">Kapcsolat</Link>
             </li>
-            <li className="auth">
+            <li>|</li>
+            <li>
               <Link to="/login">Bejelentkezés</Link>
             </li>
           </ul>

@@ -4,41 +4,38 @@ import ProfessionBadge from "../components/professionsbadge";
 import StaticStar from "./staticstar";
 import { Link } from "react-router-dom";
 
-const ProviderCard = (props) => {
-  const {
-    id,
-    image,
-    firstname,
-    lastname,
-    bio,
-    professions,
-    rate,
-    city,
-  } = props.user;
+const ProviderCard = ({ user }) => {
+  const { id, lastname, firstname, image, rate, professions, city, bio } = user;
   return (
     <>
       <Link to={`/profile/${id}`}>
-        <section className="profilecard">
-          <div className="profilecard__picture">
-            <img src={`../${image}`} alt={image} />
+        <div className="profilecard">
+          <div className="left-bar">
+            <div className="picture">
+              <img src={`../${image}`} alt={image} />
+            </div>
+            <div className="rate">
+              <StaticStar rating={rate} />
+            </div>
           </div>
-          <div className="profilecard__data"></div>
-          <h1>{`${firstname} ${lastname}`}</h1>
-          <h2>
-            <FaMapMarkerAlt size="25" />
-            {`Hungary, ${city}`}
-            <p>{bio}</p>
-          </h2>
-          <div className="profilecard__rate">
-            <StaticStar rating={rate} />
-            <h1>{rate}</h1>
+          <div className="right-bar">
+            <div className="data">
+              <h1>{`${firstname} ${lastname}`}</h1>
+              <h2>
+                <FaMapMarkerAlt size="14" />
+                {`Hungary, ${city}`}
+              </h2>
+              <div className="bio-scroll">
+                <p>{bio}</p>
+              </div>
+            </div>
+            <div className="professions">
+              {professions.map((profession, i) => (
+                <ProfessionBadge key={i} profession={profession} />
+              ))}
+            </div>
           </div>
-          <div className="profilecard__professions">
-            {professions.map((profession, i) => (
-              <ProfessionBadge key={i} profession={profession} />
-            ))}
-          </div>
-        </section>
+        </div>
       </Link>
     </>
   );

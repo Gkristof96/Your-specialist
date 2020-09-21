@@ -5,7 +5,7 @@ const Rating = (props) => {
   const [rate, setRate] = useState();
   return (
     <>
-      <div>
+      <div className="rating">
         <h1>Értékelés</h1>
         <form>
           <div className="input-group">
@@ -21,7 +21,7 @@ const Rating = (props) => {
             <label>Leírás</label>
             <textarea name="name" />
           </div>
-          <input type="submit" value="Küldés" />
+          <input className="btn" type="submit" value="Küldés" />
         </form>
       </div>
     </>

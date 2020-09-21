@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 const SideDrawer = (props) => {
   const { open, drawerClick } = props;
   let drawerClass = "sidedrawer";
+
   if (open) {
-    drawerClass = "siderdrawer open";
+    drawerClass = "sidedrawer open";
   }
   return (
     <>

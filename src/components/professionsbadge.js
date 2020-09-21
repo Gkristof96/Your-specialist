@@ -6,7 +6,7 @@ const ProfessionBadge = (props) => {
     <>
       <div className="badge">
         <FaTools />
-        {` ${props.profession}`}
+        {props.profession}
       </div>
     </>
   );

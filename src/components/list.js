@@ -2,18 +2,27 @@ import React from "react";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const List = (props) => {
-  const { name, professions } = props.data;
+const List = ({ data, setShowList }) => {
+  const { name, professions } = data;
   return (
     <>
-      <div>
-        <FaArrowAltCircleLeft onClick={() => props.handleClick()} />
-        <h1>{name}</h1>
-        {professions.map((data, i) => (
-          <Link to={`/providerslist?profession=${data}`} key={i}>
-            {data}
-          </Link>
-        ))}
+      <div className="providerslist-card">
+        <FaArrowAltCircleLeft
+          className="back-arrow"
+          onClick={() => setShowList(false)}
+        />
+        <h1 className="title">{`${name} Kategória Szakmái`}</h1>
+        <div className="professions-bar">
+          {professions.map((data, i) => (
+            <Link
+              className="profession-item"
+              to={`/providerslist?profession=${data}`}
+              key={i}
+            >
+              {data}
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   );

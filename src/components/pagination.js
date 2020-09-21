@@ -1,7 +1,6 @@
 import React from "react";
 
-const Pagination = (props) => {
-  const { totalPosts, currentPage } = props;
+const Pagination = ({ totalPosts, currentPage, paginate }) => {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalPosts / 10); i++) {
     pageNumbers.push(i);
@@ -12,7 +11,7 @@ const Pagination = (props) => {
         <ul>
           <li
             className={`${pageNumbers[0] === currentPage && "disabled"}`}
-            onClick={() => props.paginate(currentPage - 1)}
+            onClick={() => paginate(currentPage - 1)}
           >
             Previous
           </li>
@@ -20,7 +19,7 @@ const Pagination = (props) => {
             <li
               key={number}
               className={`${currentPage === number && "active"}`}
-              onClick={() => props.paginate(number)}
+              onClick={() => paginate(number)}
             >
               {number}
             </li>
@@ -29,7 +28,7 @@ const Pagination = (props) => {
             className={`${
               pageNumbers.reverse()[0] === currentPage && "disabled"
             }`}
-            onClick={() => props.paginate(currentPage + 1)}
+            onClick={() => paginate(currentPage + 1)}
           >
             Next
           </li>

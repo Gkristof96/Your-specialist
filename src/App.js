@@ -10,7 +10,7 @@ import Profile from "./pages/Profile/profile";
 import ProvidersList from "./pages/ProvidersList/providerslist";
 import Authentication from "./pages/Authentication/authentication";
 import Header from "./components/Header/header";
-import Footer from "./components/Footer/footer";
+// import Footer from "./components/Footer/footer";
 
 import "./css/style.css";
 import axios from "axios";
@@ -67,11 +67,21 @@ function App() {
               />
             )}
           />
-          <Route path="/profile/:id" component={Profile} />
+          <Route
+            path="/profile/:id"
+            render={(props) => (
+              <Profile
+                {...props}
+                loggedInStatus={loggedInStatus}
+                handleLogout={handleLogout}
+                user={user}
+              />
+            )}
+          />
           <Route path="/providerslist" component={ProvidersList} />
           <Route component={NotFound} />
         </Switch>
-        <Footer />
+        {/*<Footer />*/}
       </Router>
     </div>
   );

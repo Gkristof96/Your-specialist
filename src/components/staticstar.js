@@ -11,7 +11,7 @@ const StaticStar = (props) => {
         return (
           <FaStar
             className="star"
-            color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}
+            color={ratingValue <= rating ? "#fff" : "#D3CDCD"}
           />
         );
       })}

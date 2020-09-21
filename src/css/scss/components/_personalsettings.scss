@@ -1,0 +1,25 @@
+.personal-settings {
+  margin: 30px;
+  form {
+    width: 100%;
+    margin: 0 auto;
+    .input-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 0.5rem 0;
+
+      input {
+        margin: 0.25rem 0;
+        width: 100%;
+        height: 30px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.25);
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

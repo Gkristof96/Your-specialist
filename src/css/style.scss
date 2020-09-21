@@ -1,5 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
+// Color declaration
+$colors: (
+  primary: #ffc145,
+  primary-light: lighten(#ffc145, 5%),
+  primary-lighter: lighten(#ffc145, 30%),
+  primary-dark: darken(#ffc145, 10%),
+  primary-darker: darken(#ffc145, 15%),
+  secondary: #3a0088,
+  secondary-dark: darken(#3a0088, 10%),
+  secondary-light: lighten(#3a0088, 10%),
+  text: #fff,
+  darker-text: #bdbdbd,
+);
+
+// Imports
+@import "./scss/header";
+@import "./scss/media";
+@import "./scss/footer";
+@import "./scss/main";
+
+// Functions
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
 *,
 *::before,
 *::after {
@@ -10,9 +35,53 @@
 
 body {
   font-family: "Roboto Slab", sans-serif;
-  background: blue;
 }
 img {
   width: 100px;
   height: 100px;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: color(secondary);
+  color: color(text);
+  border-radius: 10px;
+  margin: 1rem 0;
+  padding: 0.5rem 3rem;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: color(secondary-light);
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: color(primary-lighter);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: color(primary);
+  border-radius: 2.5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: color(primary-dark);
+  border-radius: 5px;
 }

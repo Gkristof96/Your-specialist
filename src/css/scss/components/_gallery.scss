@@ -1,0 +1,36 @@
+.gallery {
+  display: flex;
+  width: 100%;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px 20px 0 0;
+  &__arrow--left {
+    width: 60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: black;
+  }
+  &__arrow--right {
+    width: 60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: black;
+  }
+  &__content {
+    width: 680px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  &__slide {
+    display: flex;
+  }
+}

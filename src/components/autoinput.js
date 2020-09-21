@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Suggestion from "./suggestion";
 
-const AutoSearch = (props) => {
-  const [suggestions, setSuggestions] = useState([]);
-
-  const { search, setSearch, items } = props;
+const AutoSearch = ({ placeholder, search, setSearch, items }) => {
+  const [suggestions, setSuggestions] = useState(["Type something..."]);
+  const [display, setDisplay] = useState(false);
 
   const onTextChange = (e) => {
     const value = e.target.value;
@@ -16,9 +15,14 @@ const AutoSearch = (props) => {
   };
 
   const suggestionChanged = (value) => {
-    setSearch(value);
-    setSuggestions([]);
+    if (suggestions.length > 1) {
+      setSearch(value);
+      setSuggestions([]);
+      setDisplay(false);
+    }
+    setDisplay(false);
   };
+
   return (
     <>
       <div className="autoComplete">
@@ -27,10 +31,13 @@ const AutoSearch = (props) => {
           value={search}
           type="text"
           onChange={onTextChange}
+          onClick={() => setDisplay(true)}
+          placeholder={placeholder}
         />
         <Suggestion
           suggestions={suggestions}
           suggestionChanged={suggestionChanged}
+          display={display}
         />
       </div>
     </>

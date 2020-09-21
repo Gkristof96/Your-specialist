@@ -33,12 +33,13 @@ const Registration = (props) => {
   };
   return (
     <>
-      <div className="registration">
-        <h1>Regisztráció</h1>
+      <div className="registration-card">
+        <h1 className="registration-card__title">Regisztráció</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="input-group">
-            <label>FelhaszmálóNév</label>
+            <label>Felhasználónév</label>
             <input
+              className="text-field"
               type="text"
               name="username"
               autoComplete="off"
@@ -62,6 +63,7 @@ const Registration = (props) => {
           <div className="input-group">
             <label>Email</label>
             <input
+              className="text-field"
               type="email"
               name="email"
               autoComplete="off"
@@ -80,6 +82,7 @@ const Registration = (props) => {
           <div className="input-group">
             <label>Jelszó</label>
             <input
+              className="text-field"
               type="password"
               name="password"
               autoComplete="off"
@@ -106,6 +109,7 @@ const Registration = (props) => {
           <div className="input-group">
             <label>Jelszó mégegyszer</label>
             <input
+              className="text-field"
               type="password"
               name="cpassword"
               autoComplete="off"
@@ -128,8 +132,7 @@ const Registration = (props) => {
               </p>
             )}
           </div>
-
-          <div className="checkbox">
+          <div className="check-group">
             <input
               id="terms"
               type="checkbox"
@@ -139,15 +142,15 @@ const Registration = (props) => {
               })}
             />
             <label htmlFor="terms">Elfogadom a felhasználói feltételeket</label>
-            {errors.checkbox && (
-              <p>
-                <FaExclamationTriangle color="red" />
-                {errors.checkbox.message}
-              </p>
-            )}
           </div>
+          {errors.checkbox && (
+            <p>
+              <FaExclamationTriangle color="red" />
+              {errors.checkbox.message}
+            </p>
+          )}
 
-          <input type="submit" value="Regisztráció" className="register__btn" />
+          <input className="btn" type="submit" value="Regisztráció" />
         </form>
       </div>
     </>
