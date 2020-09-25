@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { FaExclamationTriangle } from "react-icons/fa";
 
-const Registration = (props) => {
+const Registration = ({ handleSuccesfullAuth }, props) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
@@ -22,7 +22,7 @@ const Registration = (props) => {
       )
       .then((response) => {
         if (response.data.status === "created") {
-          props.handleSuccesfullAuth(response.data);
+          handleSuccesfullAuth(response.data);
           props.history.push("/dashboard");
         } else {
         }

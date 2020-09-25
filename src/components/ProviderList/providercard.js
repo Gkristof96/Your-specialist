@@ -1,7 +1,7 @@
 import React from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import ProfessionBadge from "../components/professionsbadge";
-import StaticStar from "./staticstar";
+import ProfessionBadge from "../professionsbadge";
+import StaticStar from "../staticstar";
 import { Link } from "react-router-dom";
 
 const ProviderCard = ({ user }) => {

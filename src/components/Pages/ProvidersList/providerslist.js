@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import AutoSearch from "../../components/autoinput";
-import Pagination from "../../components/pagination";
-import ProviderCard from "../../components/providercard";
-import Loading from "../../components/loading";
+import AutoSearch from "../../autoinput";
+import Pagination from "../../ProviderList/pagination";
+import ProviderCard from "../../ProviderList/providercard";
+import Loading from "../../loading";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
-const ProvidersList = ({ location }) => {
+const ProvidersList = () => {
   let query = useQuery();
 
   const [loading, setLoading] = useState(true);

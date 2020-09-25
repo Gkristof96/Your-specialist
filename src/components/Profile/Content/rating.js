@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import StarRate from "../starrate";
+import StarRate from "../../starrate";
 
-const Rating = (props) => {
+const Rating = () => {
   const [rate, setRate] = useState();
   return (
     <>

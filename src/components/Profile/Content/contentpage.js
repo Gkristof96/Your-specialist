@@ -1,10 +1,9 @@
 import React from "react";
 import Description from "./description";
-import Gallery from "./gallery";
+import Gallery from "./Gallery/gallery";
 import Rating from "./rating";
 
-const ContentPage = (props) => {
-  const { step, user } = props;
+const ContentPage = ({ step, user }) => {
   switch (step) {
     case 1:
       return <Description bio={user.bio} />;

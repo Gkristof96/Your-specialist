@@ -3,7 +3,10 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { FaExclamationTriangle } from "react-icons/fa";
 
-const Login = (props) => {
+const Login = (
+  { handleSuccesfullAuth, loginActive, setLoginActive },
+  props
+) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
@@ -20,7 +23,7 @@ const Login = (props) => {
       )
       .then((response) => {
         if (response.data.logged_in) {
-          props.handleSuccesfullAuth(response.data);
+          handleSuccesfullAuth(response.data);
           props.history.push("/dashboard");
         } else {
         }
@@ -66,9 +69,7 @@ const Login = (props) => {
         </form>
         <span className="login__register-redirect">
           Még nincs felhasználód? Kattints a{" "}
-          <span onClick={() => props.setLoginActive(!props.loginActive)}>
-            regisztráció
-          </span>
+          <span onClick={() => setLoginActive(!loginActive)}>regisztráció</span>
           hoz
         </span>
       </div>

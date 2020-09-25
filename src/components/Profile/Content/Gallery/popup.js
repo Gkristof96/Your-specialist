@@ -1,7 +1,6 @@
 import React from "react";
 
-const PopUp = (props) => {
-  const { source, setVisible } = props;
+const PopUp = ({ source, setVisible }) => {
   return (
     <>
       <div className="background" onClick={() => setVisible(false)}>

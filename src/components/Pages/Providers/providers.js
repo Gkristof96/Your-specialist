@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Photo from "../../components/photo";
-import List from "../../components/list";
+import Photo from "../../photo";
+import List from "../../list";
+import Loading from "../../loading";
 import axios from "axios";
 
 const Providers = () => {
@@ -32,7 +33,7 @@ const Providers = () => {
   return (
     <>
       {loading ? (
-        <h1>Loading</h1>
+        <Loading />
       ) : (
         <section className="providers">
           <div className="container">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Suggestion from "./suggestion";
 
-const AutoSearch = ({ placeholder, search, setSearch, items }) => {
+const AutoSearch = ({ placeholder, search, setSearch, items, type }) => {
   const [suggestions, setSuggestions] = useState(["Type something..."]);
   const [display, setDisplay] = useState(false);
 
@@ -25,7 +25,7 @@ const AutoSearch = ({ placeholder, search, setSearch, items }) => {
 
   return (
     <>
-      <div className="autoComplete">
+      <div className={`autofill-input ${type}`}>
         <input
           onFocus={() => setSearch("")}
           value={search}

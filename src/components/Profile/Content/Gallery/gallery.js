@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import ImageItem from "../imageitem";
-import PopUp from "../popup";
+import ImageItem from "./imageitem";
+import PopUp from "./popup";
 
 const Gallery = (props) => {
   const [gallery] = useState(props.gallery);

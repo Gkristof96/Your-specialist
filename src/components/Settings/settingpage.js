@@ -5,18 +5,24 @@ import ProviderSettings from "./professionsettings";
 import PasswordChange from "./passwordchange";
 import GalleryUpload from "./galleryupload";
 
-const SettingPage = (props) => {
-  const { step, user } = props;
-
+const SettingPage = ({ step, user, setUser }) => {
   switch (step) {
     case 1:
-      return <PersonalSettings user={user} />;
+      return <PersonalSettings setUser={setUser} user={user} />;
     case 2:
-      return <ProviderSettings user={user} />;
+      return (
+        <ProviderSettings
+          setUser={setUser}
+          user={user}
+          professions={user.professions}
+        />
+      );
     case 3:
-      return <PasswordChange user={user} />;
+      return <PasswordChange setUser={setUser} user={user} />;
     case 4:
-      return <GalleryUpload user={user} />;
+      return (
+        <GalleryUpload setUser={setUser} gallery={user.gallery} user={user} />
+      );
     default:
   }
 };

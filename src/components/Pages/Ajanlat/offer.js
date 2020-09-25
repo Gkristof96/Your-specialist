@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import AutoSearch from "../../components/autoinput";
+import AutoSearch from "../../autoinput";
 import axios from "axios";
 
 const Offer = () => {

@@ -1,27 +1,18 @@
 import React, { useState } from "react";
-import ContentPage from "./contentpage";
-import SettingPage from "../Settings/settingpage";
 import ProfessionBadge from "../professionsbadge";
 import { BsFillGearFill, BsFillHouseDoorFill } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
-import {
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaImages,
-  FaRegFileAlt,
-  FaStarHalfAlt,
-  FaUser,
-  FaShieldAlt,
-  FaWrench,
-} from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import StaticStar from "../staticstar";
+import Navbar from "./navbar";
+import SettingPage from "../Settings/settingpage";
+import ContentPage from "./Content/contentpage";
 
-const ProfileCard = ({ user }) => {
-  const [step, setStep] = useState(1);
+const ProfileCard = ({ user, setUser }) => {
   const [isSetting, setSetting] = useState(false);
+  const [step, setStep] = useState(1);
   const logged_in = true;
-  const identical = 2;
+  const identical = 1;
   const {
     id,
     firstname,
@@ -63,9 +54,9 @@ const ProfileCard = ({ user }) => {
         <div className="main">
           <div className="sidebar">
             <div className="sidebar-container">
-              <dis className="rating">
+              <div className="rating">
                 <StaticStar rating={rate} />
-              </dis>
+              </div>
               <div className="contact">
                 <span>
                   <FaPhoneAlt size="25" />
@@ -84,39 +75,10 @@ const ProfileCard = ({ user }) => {
               </div>
             </div>
           </div>
-          <div className="navbar">
-            {isSetting ? (
-              <>
-                <h1 onClick={() => setStep(1)}>
-                  <FaUser size="40" className="nav-icons" />
-                </h1>
-                <h1 onClick={() => setStep(2)}>
-                  <FaWrench size="40" className="nav-icons" />
-                </h1>
-                <h1 onClick={() => setStep(3)}>
-                  <FaShieldAlt size="40" className="nav-icons" />
-                </h1>
-                <h1 onClick={() => setStep(4)}>
-                  <FaImages size="40" className="nav-icons" />
-                </h1>
-              </>
-            ) : (
-              <>
-                <h1 onClick={() => setStep(1)}>
-                  <FaRegFileAlt size="40" className="nav-icons" />
-                </h1>
-                <h1 onClick={() => setStep(2)}>
-                  <FaImages size="40" className="nav-icons" />
-                </h1>
-                <h1 onClick={() => setStep(3)}>
-                  <FaStarHalfAlt size="40" className="nav-icons" />
-                </h1>
-              </>
-            )}
-          </div>
+          <Navbar setStep={setStep} isSetting={isSetting} />
           <div className="content">
             {isSetting ? (
-              <SettingPage step={step} user={user} />
+              <SettingPage setUser={setUser} step={step} user={user} />
             ) : (
               <ContentPage step={step} user={user} />
             )}

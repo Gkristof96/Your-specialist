@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import AutoSearch from "../../components/autoinput";
+import AutoSearch from "../../autoinput";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Index = (props) => {
+const Index = () => {
   const [city, setCity] = useState("");
   const [profession, setProfession] = useState("");
   const [cities, setCities] = useState([]);
@@ -33,7 +33,7 @@ const Index = (props) => {
   return (
     <>
       <section className="hero">
-        <div className="container">
+        <div className="hero__container">
           <div className="main-message">
             <h1 className="title">Hiába keresel nem találsz szakembert?</h1>
             <span className="subtitle">
@@ -43,32 +43,28 @@ const Index = (props) => {
           </div>
         </div>
       </section>
-
       <section className="call-to-action">
-        <div className="container">
-          <div className="search-card">
-            <div className="input">
-              <AutoSearch
-                search={city}
-                setSearch={setCity}
-                items={cities}
-                placeholder="Település"
-              />
-              <AutoSearch
-                search={profession}
-                setSearch={setProfession}
-                items={professions}
-                placeholder="Szakma"
-              />
-            </div>
-
-            <Link
-              to={`/providerslist?city=${city}&profession=${profession}`}
-              className="btn"
-            >
-              Keresés
-            </Link>
-          </div>
+        <div className="call-to-action__container">
+          <AutoSearch
+            search={city}
+            setSearch={setCity}
+            items={cities}
+            placeholder="Település"
+            type="city"
+          />
+          <AutoSearch
+            search={profession}
+            setSearch={setProfession}
+            items={professions}
+            placeholder="Szakma"
+            type="profession"
+          />
+          <Link
+            to={`/providerslist?city=${city}&profession=${profession}`}
+            className="btn"
+          >
+            Keresés
+          </Link>
         </div>
       </section>
     </>

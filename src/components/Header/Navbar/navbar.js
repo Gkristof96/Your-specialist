@@ -2,16 +2,13 @@ import React from "react";
 import DrawerToggleButton from "./hamburger";
 import { Link } from "react-router-dom";
 
-const Navbar = (props) => {
-  const { open, drawerClick } = props;
+const Navbar = ({ open, drawerClick }) => {
   return (
     <>
       <nav className="navbar">
-        <Link to="/">
-          <div className="navbar__logo">
-            <img src="../images/logo.png" alt="logo" />
-            <h1 className="title">Your specialist</h1>
-          </div>
+        <Link to="/" className="navbar__logo">
+          <img src="../images/logo.png" alt="logo" />
+          <h1 className="title">Your specialist</h1>
         </Link>
         <div className="navbar__navigation">
           <ul>

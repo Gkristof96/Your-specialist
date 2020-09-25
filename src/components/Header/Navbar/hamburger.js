@@ -1,7 +1,6 @@
 import React from "react";
 
-const DrawerToggleButton = (props) => {
-  const { open, drawerClick } = props;
+const DrawerToggleButton = ({ drawerClick, open }) => {
   let buttonClass = "toggle-button";
 
   if (open) {

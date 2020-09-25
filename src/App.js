@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Index from "./pages/Index/index";
-import NotFound from "./pages/404/404";
+import Index from "./components/Pages/Index/index";
+import NotFound from "./components/Pages/404/404";
 // import About from "./pages/About/about";
-import Contact from "./pages/Contact/contact";
-import Providers from "./pages/Providers/providers";
-import Offer from "./pages/Ajanlat/offer";
-import Profile from "./pages/Profile/profile";
-import ProvidersList from "./pages/ProvidersList/providerslist";
-import Authentication from "./pages/Authentication/authentication";
+import Contact from "./components/Pages/Contact/contact";
+import Providers from "./components/Pages/Providers/providers";
+import Offer from "./components/Pages/Ajanlat/offer";
+import Profile from "./components/Pages/Profile/profile";
+import ProvidersList from "./components/Pages/ProvidersList/providerslist";
+import Authentication from "./components/Pages/Authentication/authentication";
 import Header from "./components/Header/header";
 // import Footer from "./components/Footer/footer";
 

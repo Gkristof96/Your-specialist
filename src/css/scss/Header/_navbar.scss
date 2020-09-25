@@ -7,7 +7,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 80%;
+  margin: auto;
   height: 10vh;
   &__navigation {
     ul {
@@ -31,19 +32,15 @@
     display: flex;
     align-items: center;
     img {
-      height: 8vh;
-      width: 8vh;
+      height: 6vh;
+      width: 6vh;
     }
     h1 {
-      font-size: 36px;
-      margin-left: 1rem;
+      margin-left: 0.5rem;
     }
   }
   a {
     text-decoration: none;
     color: #fff;
-  }
-  &__hamburger {
-    margin: 1rem;
   }
 }

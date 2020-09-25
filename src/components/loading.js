@@ -1,11 +1,10 @@
 import React from "react";
 
-const Loading = (props) => {
+const Loading = () => {
   return (
     <>
       <h1>
         <img src="../images/loading.gif" alt="loading" />
-        Loading
       </h1>
     </>
   );

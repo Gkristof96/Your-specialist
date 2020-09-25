@@ -1,8 +1,7 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 
-const StaticStar = (props) => {
-  const { rating } = props;
+const StaticStar = ({ rating }) => {
   return (
     <>
       {[...Array(5)].map((star, i) => {
@@ -10,6 +9,7 @@ const StaticStar = (props) => {
 
         return (
           <FaStar
+            key={i}
             className="star"
             color={ratingValue <= rating ? "#fff" : "#D3CDCD"}
           />

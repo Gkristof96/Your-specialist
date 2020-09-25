@@ -14,20 +14,22 @@
     url("../Images/background.jpg") center no-repeat;
   background-size: cover;
   position: relative;
+  &__container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 10%;
+    grid-template-rows: 2fr 3fr 3fr;
 
-  .main-message {
-    height: 500px;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    .main-message {
+      grid-column: 2/3;
+      grid-row: 2/3;
 
-    .title {
-      font-size: 48px;
-    }
-    .subtitle {
-      font-size: 24px;
+      .title {
+        font-size: 48px;
+      }
+      .subtitle {
+        font-size: 24px;
+      }
     }
   }
 
@@ -46,21 +48,29 @@
 .call-to-action {
   height: 30vh;
   background-color: white;
-  .container {
-    display: flex;
-    justify-content: center;
+  &__container {
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 10%;
+    grid-template-rows: 1fr 2fr 2fr 1fr;
 
-    .search-card {
-      width: 100%;
-      max-width: 1000px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .input {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-      }
+    .autofill-input {
+      align-self: flex-start;
+      justify-self: center;
+    }
+    .city {
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
+    .profession {
+      grid-column: 3/4;
+      grid-row: 2/3;
+    }
+
+    .btn {
+      grid-column: 2/4;
+      grid-row: 3/4;
+      align-self: center;
+      justify-self: center;
     }
   }
 }
