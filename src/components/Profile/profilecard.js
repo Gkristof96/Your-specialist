@@ -27,62 +27,68 @@ const ProfileCard = ({ user, setUser }) => {
   return (
     <>
       <div className="profile-card">
-        <div className="header">
+        <div className="profile-card__header">
           <div className="picture">
             <img src={`../${image}`} alt={image} />
           </div>
-          <h1>{`${firstname} ${lastname}`}</h1>
-          <h2>
-            <FaMapMarkerAlt size="25" />
-            {`Hungary, ${city}`}
-          </h2>
+          <div className="Name">
+            <h1>{`${firstname} ${lastname}`}</h1>
+            <h2>
+              <FaMapMarkerAlt size="25" />
+              {`Hungary, ${city}`}
+            </h2>
+          </div>
           {logged_in && id === identical ? (
             <>
-              <button className="gear" onClick={() => setSetting(!isSetting)}>
+              <button
+                className="gear"
+                onClick={() => {
+                  setSetting(!isSetting);
+                  setStep(1);
+                }}
+              >
                 {isSetting ? (
                   <BsFillHouseDoorFill size="25" />
                 ) : (
                   <BsFillGearFill size="25" />
                 )}
               </button>
-              <button className="log" onClick={() => setSetting(!isSetting)}>
+              <button className="log">
                 <FiLogOut size="25" />
               </button>
             </>
           ) : null}
         </div>
-        <div className="main">
-          <div className="sidebar">
-            <div className="sidebar-container">
-              <div className="rating">
-                <StaticStar rating={rate} />
-              </div>
-              <div className="contact">
-                <span>
-                  <FaPhoneAlt size="25" />
-                  {tel}
-                </span>
-                <span>
-                  <FaEnvelope size="25" />
-                  {email}
-                </span>
-              </div>
-              <div className="professions">
-                <h1>Szakmák:</h1>
-                {professions.map((profession, i) => (
-                  <ProfessionBadge key={i} profession={profession} />
-                ))}
-              </div>
+        <div className="profile-card__sidebar">
+          <div className="sidebar-container">
+            <div className="rating">
+              <StaticStar rating={rate} />
+            </div>
+            <div className="contact-data">
+              <span>
+                <FaPhoneAlt size="25" />
+                {tel}
+              </span>
+              <span>
+                <FaEnvelope size="25" />
+                {email}
+              </span>
+            </div>
+            <h1>Szakmák:</h1>
+            <div className="professions">
+              {professions.map((profession, i) => (
+                <ProfessionBadge key={i} profession={profession} />
+              ))}
             </div>
           </div>
-          <Navbar setStep={setStep} isSetting={isSetting} />
-          <div className="content">
-            {isSetting ? (
-              <SettingPage setUser={setUser} step={step} user={user} />
-            ) : (
-              <ContentPage step={step} user={user} />
-            )}
-          </div>
+        </div>
+        <Navbar setStep={setStep} isSetting={isSetting} />
+        <div className="profile-card__content">
+          {isSetting ? (
+            <SettingPage setUser={setUser} step={step} user={user} />
+          ) : (
+            <ContentPage step={step} user={user} />
+          )}
         </div>
       </div>
     </>

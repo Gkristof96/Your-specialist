@@ -3,9 +3,9 @@ import React from "react";
 const Loading = () => {
   return (
     <>
-      <h1>
+      <div className="loading">
         <img src="../images/loading.gif" alt="loading" />
-      </h1>
+      </div>
     </>
   );
 };

@@ -3,9 +3,6 @@
 }
 
 .offer {
-  color: color(text);
-  width: 100%;
-  height: 100vh;
   background: linear-gradient(
       135deg,
       rgba(255, 193, 69, 0.4) 0%,
@@ -13,36 +10,76 @@
     ),
     url("../Images/background.jpg") center no-repeat;
   background-size: cover;
-  .container {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  &__container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: 5% 1fr 50%;
     .offer-card {
-      padding: 1rem;
-      width: 90%;
-      height: 700px;
+      grid-column: 2/3;
+      grid-row: 1/2;
       background-color: #fff;
+      color: #000;
       border-radius: 10px;
       box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
-      color: color(secondary);
-      .input-group {
+      &__title {
+        width: 100%;
+        text-align: center;
+        color: color(secondary);
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+      form {
         width: 80%;
+        margin: auto;
         display: flex;
         flex-direction: column;
-        margin: 1rem 0;
-
-        input {
-          margin: 0.5rem 0;
-          width: 100%;
-          height: 30px;
-          border: none;
-          border-radius: 10px;
-          box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.25);
-          &:focus {
-            outline: none;
-          }
+        .btn {
+          margin: 2rem 0;
+          height: 50px;
         }
+        p {
+          color: red;
+        }
+      }
+      &__input {
+        width: 100%;
+        height: 40px;
+        margin: 1.5rem 0;
+        padding-left: 0.5rem;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.25);
+        &:focus {
+          outline: none;
+        }
+      }
+      &__text {
+        width: 100%;
+        max-width: 100%;
+        height: 100px;
+        margin: 1.5rem 0;
+        padding-left: 0.5rem;
+        padding-top: 0.5rem;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.25);
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .offer {
+    &__container {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      .offer-card {
+        grid-column: 1/2;
+        grid-row: 1/2;
       }
     }
   }

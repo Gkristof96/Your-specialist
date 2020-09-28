@@ -1,0 +1,33 @@
+.profession-settings {
+  &__title {
+    color: color(secondary);
+  }
+  .profession-container {
+    background-color: #fff;
+    box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+  .profession-input {
+    width: 100%;
+    display: flex;
+    padding: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    justify-content: space-around;
+    align-items: center;
+    .autofill-input {
+      width: 70%;
+    }
+    .btn {
+      width: 30%;
+    }
+  }
+  .btn {
+    width: 100%;
+    margin: 2rem 0;
+  }
+}

@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const NotFound = ({ location }) => {
   return (
     <>
-      <section className="notfound">
-        <div className="container">
+      <section className="notfound section">
+        <div className="notfound__container">
           <h1 className="title">Hoppá, valami hiba történt!</h1>
           <span className="subtitle">
             Az <code>{location.pathname}</code> oldal vagy nem létezik vagy

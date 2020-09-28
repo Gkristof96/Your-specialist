@@ -1,0 +1,14 @@
+.loading {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 150px;
+    height: auto;
+  }
+}

@@ -30,3 +30,17 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .pagination {
+    ul {
+      justify-content: center;
+      height: 30px;
+      max-width: 250px;
+      li {
+        padding: 5px 10px;
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ const PasswordChange = () => {
   return (
     <>
       <div className="password-settings">
-        <h1>Jelszó csere</h1>
+        <h1 className="password-settings__title">Jelszó csere</h1>
         <form>
           <div className="input-group">
             <label>Régi jelszó</label>

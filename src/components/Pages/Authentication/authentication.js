@@ -10,8 +10,8 @@ const Authentication = ({ handleLogin }, props) => {
   };
   return (
     <>
-      <section className="authentication">
-        <div className="container">
+      <section className="authentication section">
+        <div className="authentication__container">
           {loginActive ? (
             <Login
               handleLogin={handleAuth}

@@ -16,3 +16,9 @@ header {
   z-index: 1;
   color: #fff;
 }
+
+@media (max-width: 768px) {
+  header {
+    background-color: #ffc145;
+  }
+}

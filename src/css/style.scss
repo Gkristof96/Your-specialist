@@ -40,7 +40,9 @@ img {
   width: 100px;
   height: 100px;
 }
-
+a {
+  text-decoration: none;
+}
 h1 {
   font-size: 1.3rem;
 }
@@ -52,6 +54,7 @@ h1 {
   margin: 1rem 0;
   padding: 0.5rem 3rem;
   border: none;
+  cursor: pointer;
   &:focus {
     outline: none;
   }
@@ -60,6 +63,22 @@ h1 {
   }
 }
 
+.section {
+  color: color(text);
+  min-height: 100vh;
+  height: auto;
+  display: grid;
+  grid-template-columns: 10% 1fr 10%;
+  grid-template-rows: 15% 1fr 5%;
+}
+
+@media (max-width: 768px) {
+  .section {
+    background: #fff;
+    grid-template-columns: 5% 1fr 5%;
+    grid-template-rows: 15vh 1fr 10vh;
+  }
+}
 .container {
   width: 100%;
   max-width: 1400px;

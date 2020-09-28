@@ -47,47 +47,43 @@ const Offer = () => {
   };
   return (
     <>
-      <section className="offer">
-        <div className="container">
+      <section className="offer section">
+        <div className="offer__container">
           <div className="offer-card">
-            <h1>Árajánlat</h1>
+            <h1 className="offer-card__title">Árajánlat</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="input-group">
-                <label>Név</label>
-                <input
-                  type="text"
-                  name="name"
-                  ref={register({ required: "Kötekező kitölteni!" })}
-                />
-                {errors.name && <p>{errors.name.message}</p>}
-              </div>
-              <div className="input-group">
-                <label>Email cím</label>
-                <input
-                  name="email"
-                  type="text"
-                  ref={register({ required: "Kötekező kitölteni!" })}
-                />
-                {errors.email && <p>{errors.email.message}</p>}
-              </div>
-              <div className="input-group">
-                <AutoSearch search={city} setSearch={setCity} items={cities} />
-              </div>
-              <div className="input-group">
-                <AutoSearch
-                  search={profession}
-                  setSearch={setProfession}
-                  items={professions}
-                />
-              </div>
-              <div className="input-group">
-                <label>Munka leírás</label>
-                <textarea
-                  name="description"
-                  ref={register({ required: "Kötekező kitölteni!" })}
-                />
-                {errors.description && <p>{errors.description.message}</p>}
-              </div>
+              <input
+                className="offer-card__input"
+                type="text"
+                name="name"
+                ref={register({ required: "Kötekező kitölteni!" })}
+              />
+              {errors.name && <p>{errors.name.message}</p>}
+              <input
+                className="offer-card__input"
+                name="email"
+                type="text"
+                ref={register({ required: "Kötekező kitölteni!" })}
+              />
+              {errors.email && <p>{errors.email.message}</p>}
+              <AutoSearch
+                type="city"
+                search={city}
+                setSearch={setCity}
+                items={cities}
+              />
+              <AutoSearch
+                type="profession"
+                search={profession}
+                setSearch={setProfession}
+                items={professions}
+              />
+              <textarea
+                className="offer-card__text"
+                name="description"
+                ref={register({ required: "Kötekező kitölteni!" })}
+              />
+              {errors.description && <p>{errors.description.message}</p>}
               <input className="btn" type="submit" value="Küldés" />
             </form>
           </div>

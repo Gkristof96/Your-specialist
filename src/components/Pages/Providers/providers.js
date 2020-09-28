@@ -35,8 +35,8 @@ const Providers = () => {
       {loading ? (
         <Loading />
       ) : (
-        <section className="providers">
-          <div className="container">
+        <section className="providers section">
+          <div className="providers__container">
             <div
               className={`provider-card ${showList ? "list" : "categories"}`}
             >

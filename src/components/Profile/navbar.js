@@ -11,7 +11,7 @@ import {
 const Navbar = ({ setStep, isSetting }) => {
   return (
     <>
-      <div className="navbar">
+      <div className="profile-card__navbar">
         {isSetting ? (
           <>
             <h1 onClick={() => setStep(1)}>

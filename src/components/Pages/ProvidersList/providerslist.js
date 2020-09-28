@@ -70,36 +70,40 @@ const ProvidersList = () => {
     <>
       <section className="pvheader"></section>
       <section className="pvlist">
-        <div className="container">
-          <div className="search">
-            <AutoSearch search={city} setSearch={setCity} items={cities} />
-            <AutoSearch
-              search={profession}
-              setSearch={setProfession}
-              items={professions}
-            />
-            <button className="btn" onClick={() => handleClick()}>
-              Keresés
-            </button>
-          </div>
-          <div className="content">
-            {loading ? (
-              <Loading />
-            ) : (
-              <div className="provider-container">
-                {currentPost.map((user) => (
-                  <ProviderCard key={user.id} user={user} />
-                ))}
-              </div>
-            )}
-          </div>
-          <div className="pagination">
-            <Pagination
-              totalPosts={users.length}
-              paginate={paginate}
-              currentPage={currentPage}
-            />
-          </div>
+        <div className="search">
+          <AutoSearch
+            type="city"
+            search={city}
+            setSearch={setCity}
+            items={cities}
+          />
+          <AutoSearch
+            type="profession"
+            search={profession}
+            setSearch={setProfession}
+            items={professions}
+          />
+          <button className="btn" onClick={() => handleClick()}>
+            Keresés
+          </button>
+        </div>
+        <div className="content">
+          {loading ? (
+            <Loading />
+          ) : (
+            <>
+              {currentPost.map((user) => (
+                <ProviderCard key={user.id} user={user} />
+              ))}
+            </>
+          )}
+        </div>
+        <div className="pagination">
+          <Pagination
+            totalPosts={users.length}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
         </div>
       </section>
     </>

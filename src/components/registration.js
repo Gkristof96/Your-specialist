@@ -36,102 +36,86 @@ const Registration = ({ handleSuccesfullAuth }, props) => {
       <div className="registration-card">
         <h1 className="registration-card__title">Regisztráció</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="input-group">
-            <label>Felhasználónév</label>
-            <input
-              className="text-field"
-              type="text"
-              name="username"
-              autoComplete="off"
-              ref={register({
-                required: " Kötelező kitölteni!",
-                minLength: {
-                  value: 2,
-                  message:
-                    " Legalább 3 karakteres kell legyen a felhasználónév!",
-                },
-              })}
-            />
-            {errors.username && (
-              <p>
-                <FaExclamationTriangle color="red" />
-                {errors.username.message}
-              </p>
-            )}
-          </div>
-
-          <div className="input-group">
-            <label>Email</label>
-            <input
-              className="text-field"
-              type="email"
-              name="email"
-              autoComplete="off"
-              ref={register({
-                required: " Kötelező kitölteni!",
-              })}
-            />
-            {errors.email && (
-              <p>
-                <FaExclamationTriangle color="red" />
-                {errors.email.message}
-              </p>
-            )}
-          </div>
-
-          <div className="input-group">
-            <label>Jelszó</label>
-            <input
-              className="text-field"
-              type="password"
-              name="password"
-              autoComplete="off"
-              ref={register({
-                required: " Kötelező kitölteni!",
-                minLength: {
-                  value: 8,
-                  message: " Legalább 8 karakteres kell legyen a jelszó!",
-                },
-                maxLength: {
-                  value: 32,
-                  message: " Legfeljebb 32 karakteres lehet a jelszó!",
-                },
-              })}
-            />
-            {errors.password && (
-              <p>
-                <FaExclamationTriangle color="red" />
-                {errors.password.message}
-              </p>
-            )}
-          </div>
-
-          <div className="input-group">
-            <label>Jelszó mégegyszer</label>
-            <input
-              className="text-field"
-              type="password"
-              name="cpassword"
-              autoComplete="off"
-              ref={register({
-                required: " Kötelező kitölteni!",
-                minLength: {
-                  value: 8,
-                  message: " Legalább 8 karakteres kell legyen a jelszó!",
-                },
-                maxLength: {
-                  value: 32,
-                  message: " Legfeljebb 32 karakteres lehet a jelszó!",
-                },
-              })}
-            />
-            {errors.cpassword && (
-              <p>
-                <FaExclamationTriangle color="red" />
-                {errors.cpassword.message}
-              </p>
-            )}
-          </div>
+          <input
+            className="text-field"
+            type="text"
+            name="username"
+            autoComplete="off"
+            ref={register({
+              required: " Kötelező kitölteni!",
+              minLength: {
+                value: 2,
+                message: " Legalább 3 karakteres kell legyen a felhasználónév!",
+              },
+            })}
+          />
+          {errors.username && (
+            <p>
+              <FaExclamationTriangle color="red" />
+              {errors.username.message}
+            </p>
+          )}
+          <input
+            className="text-field"
+            type="email"
+            name="email"
+            autoComplete="off"
+            ref={register({
+              required: " Kötelező kitölteni!",
+            })}
+          />
+          {errors.email && (
+            <p>
+              <FaExclamationTriangle color="red" />
+              {errors.email.message}
+            </p>
+          )}
+          <input
+            className="text-field"
+            type="password"
+            name="password"
+            autoComplete="off"
+            ref={register({
+              required: " Kötelező kitölteni!",
+              minLength: {
+                value: 8,
+                message: " Legalább 8 karakteres kell legyen a jelszó!",
+              },
+              maxLength: {
+                value: 32,
+                message: " Legfeljebb 32 karakteres lehet a jelszó!",
+              },
+            })}
+          />
+          {errors.password && (
+            <p>
+              <FaExclamationTriangle color="red" />
+              {errors.password.message}
+            </p>
+          )}
+          <input
+            className="text-field"
+            type="password"
+            name="cpassword"
+            autoComplete="off"
+            ref={register({
+              required: " Kötelező kitölteni!",
+              minLength: {
+                value: 8,
+                message: " Legalább 8 karakteres kell legyen a jelszó!",
+              },
+              maxLength: {
+                value: 32,
+                message: " Legfeljebb 32 karakteres lehet a jelszó!",
+              },
+            })}
+          />
+          {errors.cpassword && (
+            <p>
+              <FaExclamationTriangle color="red" />
+              {errors.cpassword.message}
+            </p>
+          )}
           <div className="check-group">
             <input
               id="terms"

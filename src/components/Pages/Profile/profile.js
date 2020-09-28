@@ -26,18 +26,16 @@ const Profile = ({ handleLogout }) => {
   }, []);
   return (
     <>
-      <section className="profile">
-        <div className="container">
-          {loading ? (
-            <Loading />
-          ) : (
-            <ProfileCard
-              user={user}
-              setUser={setUser}
-              handleLogout={handleLogout}
-            />
-          )}
-        </div>
+      <section className="profile section">
+        {loading ? (
+          <Loading />
+        ) : (
+          <ProfileCard
+            user={user}
+            setUser={setUser}
+            handleLogout={handleLogout}
+          />
+        )}
       </section>
     </>
   );

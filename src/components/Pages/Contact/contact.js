@@ -29,57 +29,55 @@ const Contact = () => {
   };
   return (
     <>
-      <section className="contact-hero"></section>
-      <section className="contact">
-        <div className="container">
-          <div className="data">
-            <h1>Elérhetőségek:</h1>
-            <span>
-              <FaPhoneAlt />
-              Telefon: +36 70 456 2397
-            </span>
-            <span>
-              <FaEnvelope />
-              Email: contact@yspecialist.com
-            </span>
-            <span>
-              <FaFacebookSquare />
-              Facebook: link
-            </span>
-            <span>
-              <FaMapMarkerAlt /> Cím: valami
-            </span>
+      <section className="contact section">
+        <div className="contact__container">
+          <div className="contact-data">
+            <h1 className="contact-data__title">Elérhetőségek:</h1>
+            <div className="contact-data__container">
+              <span className="contact-data__item">
+                <FaPhoneAlt className="contact-icon" />
+                Telefon: +36 70 456 2397
+              </span>
+              <span className="contact-data__item">
+                <FaEnvelope className="contact-icon" />
+                Email: contact@yspecialist.com
+              </span>
+              <span className="contact-data__item">
+                <FaFacebookSquare className="contact-icon" />
+                Facebook: link
+              </span>
+              <span className="contact-data__item">
+                <FaMapMarkerAlt className="contact-icon" /> Cím: valami
+              </span>
+            </div>
           </div>
-          <div className="call-to-action">
-            <h1 className="call-to-action__title">Üzenj nekünk</h1>
+          <div className="contact-us">
+            <h1 className="contact-us__title">Üzenj nekünk</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="input-group">
-                <label>Név</label>
-                <input
-                  name="name"
-                  type="text"
-                  ref={register({ required: "Kötekező kitölteni!" })}
-                />
-                {errors.name && <p>{errors.name.message}</p>}
-              </div>
-              <div className="input-group">
-                <label>Email</label>
-                <input
-                  name="email"
-                  type="email"
-                  ref={register({ required: "Kötekező kitölteni!" })}
-                />
-                {errors.email && <p>{errors.email.message}</p>}
-              </div>
-              <div className="input-group">
-                <label>Üzenet</label>
-                <textarea
-                  name="message"
-                  type="text"
-                  ref={register({ required: "Kötekező kitölteni!" })}
-                />
-                {errors.message && <p>{errors.message.message}</p>}
-              </div>
+              <input
+                className="contact-us__input"
+                name="name"
+                type="text"
+                ref={register({ required: "Kötekező kitölteni!" })}
+                placeholder="Név"
+              />
+              {errors.name && <p>{errors.name.message}</p>}
+              <input
+                className="contact-us__input"
+                name="email"
+                type="email"
+                ref={register({ required: "Kötekező kitölteni!" })}
+                placeholder="Email"
+              />
+              {errors.email && <p>{errors.email.message}</p>}
+              <textarea
+                className="contact-us__text"
+                name="message"
+                type="text"
+                ref={register({ required: "Kötekező kitölteni!" })}
+                placeholder="Üzenet"
+              />
+              {errors.message && <p>{errors.message.message}</p>}
               <input className="btn" type="submit" value="Küldés" />
             </form>
           </div>

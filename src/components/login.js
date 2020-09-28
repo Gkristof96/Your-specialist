@@ -37,41 +37,39 @@ const Login = (
       <div className="login-card">
         <h1 className="login-card__title">Bejelentkezés</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="input-group">
-            <label>Felhasználónév</label>
-            <input
-              name="username"
-              autoComplete="off"
-              ref={register({ required: " Kötelező kitölteni!" })}
-            />
-            {errors.username && (
-              <p>
-                <FaExclamationTriangle />
-                {errors.username.message}
-              </p>
-            )}
-          </div>
-          <div className="input-group">
-            <label>Jelszó</label>
-            <input
-              name="password"
-              autoComplete="off"
-              ref={register({ required: " Kötelező kitölteni!" })}
-            />
-            {errors.password && (
-              <p>
-                <FaExclamationTriangle />
-                {errors.password.message}
-              </p>
-            )}
-          </div>
+          <input
+            className="login-card__input"
+            name="username"
+            autoComplete="off"
+            placeholder="Felhasználónév"
+            ref={register({ required: " Kötelező kitölteni!" })}
+          />
+          {errors.username && (
+            <p>
+              <FaExclamationTriangle />
+              {errors.username.message}
+            </p>
+          )}
+          <input
+            className="login-card__input"
+            name="password"
+            autoComplete="off"
+            placeholder="Jelszó"
+            ref={register({ required: " Kötelező kitölteni!" })}
+          />
+          {errors.password && (
+            <p>
+              <FaExclamationTriangle />
+              {errors.password.message}
+            </p>
+          )}
           <input className="btn" type="submit" value="Bejelentkezés" />
         </form>
-        <span className="login__register-redirect">
+        <h2 className="login-card__register-redirect">
           Még nincs felhasználód? Kattints a{" "}
           <span onClick={() => setLoginActive(!loginActive)}>regisztráció</span>
           hoz
-        </span>
+        </h2>
       </div>
     </>
   );

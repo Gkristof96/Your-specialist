@@ -1,6 +1,6 @@
 import React from "react";
 
-const PersonalSettings = (props) => {
+const PersonalSettings = ({ user, setUser }) => {
   return (
     <>
       <div className="personal-settings">
@@ -12,27 +12,27 @@ const PersonalSettings = (props) => {
           </div>
           <div className="input-group">
             <label>Keresztnév</label>
-            <input name="firstname" type="text" />
+            <input value={user.firstname} name="firstname" type="text" />
           </div>
           <div className="input-group">
             <label>Vezetéknév</label>
-            <input name="lastname" type="text" />
+            <input value={user.lastname} name="lastname" type="text" />
           </div>
           <div className="input-group">
             <label>Város</label>
-            <input name="city" type="text" />
+            <input value={user.city} name="city" type="text" />
           </div>
           <div className="input-group">
             <label>Telefonszám</label>
-            <input name="tel" type="text" />
+            <input value={user.tel} name="tel" type="text" />
           </div>
           <div className="input-group">
             <label>Email</label>
-            <input name="email" type="email" />
+            <input value={user.email} name="email" type="email" />
           </div>
           <div className="input-group">
             <label>Leírás</label>
-            <textarea name="description" />
+            <textarea value={user.bio} name="description" />
           </div>
           <input className="btn" type="submit" value="Mentés" />
         </form>

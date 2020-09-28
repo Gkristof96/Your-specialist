@@ -1,18 +1,26 @@
 .authentication {
-  color: color(text);
-  width: 100%;
-  height: 100vh;
   background: linear-gradient(
       135deg,
       rgba(255, 193, 69, 0.4) 0%,
       rgba(255, 193, 69, 0.4) 100%
     ),
-    url("../Images/background.jpg") center no-repeat;
+    url("../Images/auth-background.jpg") center no-repeat;
   background-size: cover;
-  position: relative;
-  .container {
+  &__container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: 5% 1fr 30% 1fr 5%;
+    grid-template-rows: 10% 1fr 10%;
     height: 100%;
-    display: flex;
-    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .authentication {
+    &__container {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
   }
 }

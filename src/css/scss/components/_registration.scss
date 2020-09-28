@@ -1,50 +1,21 @@
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
 .registration-card {
-  width: 500px;
-  height: 700px;
+  grid-column: 4/5;
+  grid-row: 2/3;
+  background-color: #fff;
+  color: #000;
   border-radius: 10px;
   box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
-  background-color: #fff;
-  color: color(secondary);
-  p {
-    color: red;
-  }
-  &__title {
-    width: 100%;
-    text-align: center;
-    margin: 2rem 0;
-  }
-  form {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .input-group {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      margin: 1rem 0;
+}
 
-      .text-field {
-        margin: 0.5rem 0;
-        width: 100%;
-        height: 30px;
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.25);
-        &:focus {
-          outline: none;
-        }
-      }
-    }
-    .check-group {
-      width: 100%;
-      display: flex;
-      margin: 1rem 0;
-      align-items: center;
-      label {
-        margin-left: 0.5rem;
-      }
-    }
+@media (max-width: 768px) {
+  .registration-card {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    justify-self: center;
+    max-width: 400px;
   }
 }
