@@ -136,6 +136,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   list-style: none;
 }
 
@@ -150,6 +153,7 @@
 
 .navbar__navigation li {
   padding: 1rem;
+  font-size: 18px;
 }
 
 .navbar__logo {
@@ -179,6 +183,32 @@
   .navbar {
     width: 90%;
   }
+}
+
+.profile-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  border: 3px solid #3a0088;
+  padding: 10px 20px;
+}
+
+.profile-btn__title {
+  color: #3a0088;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.profile-btn__image {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin-left: 10px;
 }
 
 header {
@@ -1226,6 +1256,115 @@ header {
   margin: 2rem 0;
 }
 
+@media (max-width: 768px) {
+  .profession-settings .profession-input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .profession-settings .profession-input .autofill-input {
+    width: 90%;
+  }
+  .profession-settings .profession-input .btn {
+    width: 90%;
+  }
+}
+
+.mivan {
+  position: relative;
+  margin: 0.5rem;
+}
+
+.mivan .del {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  color: red;
+  font-weight: 700;
+}
+
+.mivan .del:focus {
+  outline: none;
+}
+
+.gallery-upload__title {
+  color: #3a0088;
+}
+
+.gallery-upload__gallery-container {
+  background-color: #fff;
+  -webkit-box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.gallery-upload__upload-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 768px) {
+  .gallery-upload {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .gallery-upload__upload-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .gallery-upload__upload-container input {
+    width: 100%;
+  }
+}
+
 .profile-card {
   height: 100%;
   -ms-grid-row: 2;
@@ -1485,6 +1624,7 @@ header {
   grid-row: 2/3;
   background-color: #fff;
   padding: 30px;
+  height: 100%;
   overflow: auto;
   -webkit-box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.25);
           box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.25);

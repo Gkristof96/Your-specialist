@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import DrawerToggleButton from "./hamburger";
+import ProfileButton from './profilebutton'
 import { Link } from "react-router-dom";
+import LoginButton from "./loginbutton";
 
 const Navbar = ({ open, drawerClick }) => {
+  const [isloggedIn] = useState(true)
   return (
     <>
       <nav className="navbar">
@@ -26,7 +29,7 @@ const Navbar = ({ open, drawerClick }) => {
             </li>
             <li>|</li>
             <li>
-              <Link to="/login">Bejelentkezés</Link>
+              {isloggedIn ? <ProfileButton /> : <LoginButton />}
             </li>
           </ul>
         </div>

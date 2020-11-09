@@ -1,0 +1,17 @@
+.mivan {
+  position: relative;
+  margin: 0.5rem;
+  .del {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    color: red;
+    font-weight: 700;
+    &:focus {
+      outline: none;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.profile-btn {
+    display: flex;
+    align-items: center;
+    background: color(text);
+    border-radius: 10px;
+    border: 3px solid color(secondary);
+    padding: 10px 20px;
+
+    &__title {
+        color: color(secondary);
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    &__image {
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        margin-left: 10px;
+    }
+}

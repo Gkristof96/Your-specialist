@@ -6,10 +6,12 @@ const ImageCard = ({ gallery, setGallery, image }) => {
     console.log(gallery);
   };
   return (
-    <>
-      <img src={`../${image}`} alt={image} />
-      <button onClick={() => handleDelete()}>X</button>
-    </>
+    <div className="mivan">
+      <img className="img" src={`../${image}`} alt={image} />
+      <button className="del" onClick={() => handleDelete()}>
+        X
+      </button>
+    </div>
   );
 };
 
