@@ -1,15 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SideDrawer = ({ drawerClick, open }) => {
-  let drawerClass = "sidedrawer";
-
-  if (open) {
-    drawerClass = "sidedrawer open";
-  }
+const SideMenu = ({drawerClick}) => {
   return (
     <>
-      <nav className={drawerClass} onClick={drawerClick}>
+      <nav className='sidedrawer' onClick={drawerClick}>
         <ul>
           <li>
             <Link to="/providers">Szakemberek</Link>
@@ -32,4 +27,4 @@ const SideDrawer = ({ drawerClick, open }) => {
   );
 };
 
-export default SideDrawer;
+export default SideMenu;

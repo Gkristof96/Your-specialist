@@ -9,9 +9,9 @@
   background-color: color(primary-dark);
   position: fixed;
   bottom: 0;
-  right: 0;
-  z-index: 1;
-  transform: translateX(100%);
+  right: -200px;
+  z-index: 100;
+  transform: translateX(-200px);
   transition: transform 0.5s ease-in-out;
   ul {
     list-style: none;
@@ -40,8 +40,5 @@
         background-color: color(primary-darker);
       }
     }
-  }
-  &.open {
-    transform: translateX(0);
   }
 }

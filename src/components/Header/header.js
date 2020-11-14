@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar/navbar";
-import SideDrawer from "./SideDrawer/sidedrawer";
+import SideMenu from "./SideDrawer/sidemenu";
 
 const Header = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   const drawerClickHandler = () => {
-    setIsDrawerOpen(!isDrawerOpen);
+    setMenuOpen(!isMenuOpen);
   };
   return (
     <>
       <header>
-        <Navbar drawerClick={drawerClickHandler} open={isDrawerOpen} />
-        <SideDrawer drawerClick={drawerClickHandler} open={isDrawerOpen} />
+        <Navbar drawerClick={drawerClickHandler} open={isMenuOpen} />
+        {isMenuOpen && <SideMenu drawerClick={drawerClickHandler}/>}
       </header>
     </>
   );

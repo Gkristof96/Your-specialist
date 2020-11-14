@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, {useContext } from "react";
 import DrawerToggleButton from "./hamburger";
 import ProfileButton from './profilebutton'
 import { Link } from "react-router-dom";
 import LoginButton from "./loginbutton";
+import AuthContext from "../../../contexts/authContext";
 
 const Navbar = ({ open, drawerClick }) => {
-  const [isloggedIn] = useState(true)
+  const {isLoggedIn, user} = useContext(AuthContext)
   return (
     <>
       <nav className="navbar">
@@ -29,7 +30,7 @@ const Navbar = ({ open, drawerClick }) => {
             </li>
             <li>|</li>
             <li>
-              {isloggedIn ? <ProfileButton /> : <LoginButton />}
+              {isLoggedIn ? <ProfileButton username={user.name} /> : <LoginButton />}
             </li>
           </ul>
         </div>

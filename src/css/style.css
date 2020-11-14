@@ -59,10 +59,10 @@
   background-color: #ffb012;
   position: fixed;
   bottom: 0;
-  right: 0;
-  z-index: 1;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  right: -200px;
+  z-index: 100;
+  -webkit-transform: translateX(-200px);
+          transform: translateX(-200px);
   -webkit-transition: -webkit-transform 0.5s ease-in-out;
   transition: -webkit-transform 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out;
@@ -110,11 +110,6 @@
 .sidedrawer ul li:hover, .sidedrawer ul li:active {
   cursor: pointer;
   background-color: #f8a500;
-}
-
-.sidedrawer.open {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
 }
 
 .navbar {
