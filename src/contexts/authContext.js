@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({children}) => {
     const [isLoggedIn, setLoggedIn] = useState(false)
     const [user, setUser] = useState({})
+    let history = useHistory();
 
     const handleLogin = () => {
         setLoggedIn(true)
+        history.push(`/profile/2`)
         setUser({name: 'Pista'})
     }
 

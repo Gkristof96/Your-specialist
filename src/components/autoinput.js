@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Suggestion from "./suggestion";
 
 const AutoSearch = ({ placeholder, search, setSearch, items, type }) => {
-  const [suggestions, setSuggestions] = useState(["Type something..."]);
+  const [suggestions, setSuggestions] = useState([]);
   const [display, setDisplay] = useState(false);
 
   const onTextChange = (e) => {

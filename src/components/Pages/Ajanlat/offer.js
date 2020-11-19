@@ -1,31 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import AutoSearch from "../../autoinput";
-import axios from "axios";
+import InputContext from '../../../contexts/inputContext'
+import axios from 'axios'
+
 
 const Offer = () => {
   const { register, handleSubmit, errors } = useForm();
 
   const [city, setCity] = useState("");
   const [profession, setProfession] = useState("");
-  const [cities, setCities] = useState([]);
-  const [professions, setProfessions] = useState([]);
-
-  async function fetchCities() {
-    const response = await fetch("data/cities.json");
-    const data = await response.json();
-    setCities(data.cities);
-  }
-  async function fetchProfessions() {
-    const response = await fetch("data/professions.json");
-    const data = await response.json();
-    setProfessions(data.professions);
-  }
-
-  useEffect(() => {
-    fetchCities();
-    fetchProfessions();
-  }, []);
+  const {cities,professions} = useContext(InputContext)
 
   const onSubmit = (data) => {
     axios

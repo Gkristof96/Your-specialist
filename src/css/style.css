@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .toggle-button {
   height: 24px;
   width: 30px;
@@ -1818,7 +1819,7 @@ header {
 }
 
 .autofill-input input {
-  width: 100%;
+  width: 90%;
   text-align: center;
   border: none;
   border-bottom: 2px solid #3a0088;
@@ -1827,12 +1828,14 @@ header {
   font-size: 24px;
   margin-top: 1rem;
   padding: 1.5rem 0.5rem;
+  background: transparent;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
 .autofill-input input:focus {
   outline: none;
-  border: 2px solid #3a0088;
-  border-radius: 10px 10px 0 0;
+  background: #eee;
 }
 
 .autofill-input ul {
@@ -1844,16 +1847,18 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 2px solid #3a0088;
-  border-top: none;
-  border-radius: 0 0 10px 10px;
+  background: #eee;
 }
 
 .autofill-input ul li {
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2198,10 +2203,6 @@ header {
   height: 50px;
 }
 
-.login-card form p {
-  color: red;
-}
-
 .login-card__input {
   width: 100%;
   height: 40px;
@@ -2223,7 +2224,6 @@ header {
   width: 80%;
   margin: auto;
   color: #000;
-  text-align: center;
 }
 
 .login-card__register-redirect span {
@@ -2386,6 +2386,117 @@ header {
   height: auto;
 }
 
+.input-container {
+  width: 100%;
+  margin: 30px 0;
+  border-bottom: 2px solid #bbb;
+  position: relative;
+}
+
+.input-container .input-field {
+  width: 100%;
+  height: 40px;
+  padding: 0 5px;
+  color: #000;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.input-container textarea {
+  width: 100%;
+  height: 40px;
+  padding: 0 5px;
+  resize: none;
+  font: normal normal medium 18px/48px Roboto;
+  color: #000;
+  border: none;
+  outline: none;
+  background: none;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.input-container .textarea-span::before {
+  content: attr(data-placeholder);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  text-align: left;
+  font-weight: bolder;
+  font: normal normal medium 18px/48px Roboto;
+  letter-spacing: 0px;
+  color: #000;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.input-container .input-span::before {
+  content: attr(data-placeholder);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  text-align: left;
+  font-weight: bolder;
+  font: normal normal medium 18px/48px Roboto;
+  letter-spacing: 0px;
+  color: #666;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.input-container span::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  background: #3a0088;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.textbox {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+}
+
+.input-container.focus .input-span::before {
+  top: -5px;
+}
+
+.input-container.focus textarea {
+  height: 100px;
+}
+
+.input-container.focus .textarea-span::before {
+  top: -15px;
+}
+
+.input-container.focus span::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .textbox {
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 1;
+    grid-row: 5/6;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -2415,6 +2526,8 @@ h1 {
 .btn {
   text-decoration: none;
   background-color: #3a0088;
+  text-transform: uppercase;
+  font-weight: bold;
   color: #fff;
   border-radius: 10px;
   margin: 1rem 0;
@@ -2480,5 +2593,11 @@ h1 {
 ::-webkit-scrollbar-thumb:hover {
   background: #ffb012;
   border-radius: 5px;
+}
+
+.error-message {
+  color: #3a0088;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 /*# sourceMappingURL=style.css.map */

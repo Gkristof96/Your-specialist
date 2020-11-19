@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 // Color declaration
 $colors: (
@@ -49,6 +50,8 @@ h1 {
 .btn {
   text-decoration: none;
   background-color: color(secondary);
+  text-transform: uppercase;
+  font-weight: bold;
   color: color(text);
   border-radius: 10px;
   margin: 1rem 0;
@@ -106,4 +109,10 @@ h1 {
 ::-webkit-scrollbar-thumb:hover {
   background: color(primary-dark);
   border-radius: 5px;
+}
+
+.error-message {
+  color: #3a0088;
+  font-size: 14px;
+  text-transform: uppercase;
 }

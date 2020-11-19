@@ -1,35 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import AutoSearch from "../../autoinput";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import InputContext from '../../../contexts/inputContext'
+import { useHistory } from "react-router-dom";
 
 const Index = () => {
+  // állapotok deklarálása
   const [city, setCity] = useState("");
   const [profession, setProfession] = useState("");
-  const [cities, setCities] = useState([]);
-  const [professions, setProfessions] = useState([]);
-
-  async function fetchCities() {
-    await axios
-      .get("../data/cities.json")
-      .then((response) => {
-        setCities(response.data.cities);
-      })
-      .catch((error) => console.log(error));
+  // context meghívása
+  const {cities,professions} = useContext(InputContext);
+  // history létrehozása
+  let history = useHistory();
+  // Keresést kezelő függvény
+  const handleSearch = () => {
+    // ha mindkét adat megvan adva átírányitjuk a providers oldalra
+    if(city.length > 0 && profession.length > 0) {
+      history.push(`/providerslist?city=${city}&profession=${profession}`)
+    }
+    // ellenkező esetben hibaüzenet
+    else {
+      console.log(cities)
+    }
   }
-  async function fetchProfessions() {
-    await axios
-      .get("../data/professions.json")
-      .then((response) => {
-        setProfessions(response.data.professions);
-      })
-      .catch((error) => console.log(error));
-  }
-
-  useEffect(() => {
-    fetchCities();
-    fetchProfessions();
-  }, []);
   return (
     <>
       <section className="hero">
@@ -59,12 +51,9 @@ const Index = () => {
             placeholder="Szakma"
             type="profession"
           />
-          <Link
-            to={`/providerslist?city=${city}&profession=${profession}`}
-            className="btn"
-          >
-            Keresés
-          </Link>
+
+          <button className='btn' onClick={() => handleSearch()}>Keresés</button>
+          
         </div>
       </section>
     </>

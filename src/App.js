@@ -12,6 +12,7 @@ import Header from "./components/Header/header";
 
 import "./css/style.css";
 import { AuthProvider } from "./contexts/authContext";
+import { InputProvider } from './contexts/inputContext'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Router>
         <AuthProvider>
           <Header />
+          <InputProvider>
           <Switch>
             <Route 
               exact 
@@ -52,6 +54,7 @@ function App() {
             />
             <Route component={NotFound} />
           </Switch>
+          </InputProvider>
         </AuthProvider>
       </Router>
     </div>
