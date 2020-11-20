@@ -1,14 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Index from "./components/Pages/Index/index";
-import NotFound from "./components/Pages/404/404";
-import Contact from "./components/Pages/Contact/contact";
-import Providers from "./components/Pages/Providers/providers";
-import Offer from "./components/Pages/Ajanlat/offer";
-import Profile from "./components/Pages/Profile/profile";
-import ProvidersList from "./components/Pages/ProvidersList/providerslist";
-import Authentication from "./components/Pages/Authentication/authentication";
-import Header from "./components/Header/header";
+
+import Header from './components/Header'
+import Index from './pages/Index'
+import Contact from './pages/Contact'
+import Providers from './pages/Providers'
+import Offer from './pages/Ajanlat'
+import Profile from './pages/Profile'
+import Authentication from './pages/Authentication'
+import NotFound from './pages/404'
+import ProvidersList from './pages/ProvidersList'
 
 import "./css/style.css";
 import { AuthProvider } from "./contexts/authContext";
@@ -16,8 +17,7 @@ import { InputProvider } from './contexts/inputContext'
 
 function App() {
   return (
-    <div className="App">
-      
+    <>
       <Router>
         <AuthProvider>
           <Header />
@@ -57,7 +57,7 @@ function App() {
           </InputProvider>
         </AuthProvider>
       </Router>
-    </div>
+    </>
   );
 }
 

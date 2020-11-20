@@ -651,6 +651,7 @@ header {
 
 .providers__container .provider-card {
   background-color: #fff;
+  min-height: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -658,21 +659,28 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   border-radius: 10px;
-  -webkit-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
+  position: relative;
   -webkit-box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
           box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
 }
 
 .providers__container .provider-card .title {
   color: #3a0088;
+  margin: 2rem 0;
+}
+
+.providers__container .provider-card .back-arrow {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: #3a0088;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
 
 .providers__container .provider-card .providers-content {
@@ -686,10 +694,40 @@ header {
       flex-wrap: wrap;
 }
 
-.providers__container .provider-card.list {
+.providers__container .provider-card .professions-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 60%;
-  -webkit-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
+}
+
+.providers__container .provider-card .professions-bar .profession-item {
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  background-color: #3a0088;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.providers__container .provider-card .professions-bar .profession-item:hover {
+  background-color: #5000bb;
+}
+
+.providers__container .list {
+  width: 60%;
+}
+
+.providers__container .categories {
+  max-width: 1200px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .notfound {
@@ -2272,63 +2310,6 @@ header {
         justify-self: center;
     max-width: 400px;
   }
-}
-
-.providerslist-card {
-  width: 100%;
-  min-height: 700px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  position: relative;
-}
-
-.providerslist-card .back-arrow {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  color: #3a0088;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-}
-
-.providerslist-card .title {
-  text-align: center;
-  width: 100%;
-  margin: 2rem 0;
-}
-
-.providerslist-card .professions-bar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 60%;
-}
-
-.providerslist-card .professions-bar .profession-item {
-  padding: 1rem 2rem;
-  margin: 0.5rem;
-  background-color: #3a0088;
-  border-radius: 10px;
-  color: #fff;
-  cursor: pointer;
-}
-
-.providerslist-card .professions-bar .profession-item:hover {
-  background-color: #5000bb;
 }
 
 .badge {
