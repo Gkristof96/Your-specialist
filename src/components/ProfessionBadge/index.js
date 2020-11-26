@@ -1,5 +1,4 @@
 import React from "react";
-import { FaTools } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
 
 const ProfessionBadge = ({
@@ -16,7 +15,6 @@ const ProfessionBadge = ({
   return (
     <>
       <div className="badge">
-        <FaTools size="25" />
         {profession}
         {settings ? (
           <TiDelete size="25" onClick={() => handleDelete()} />

@@ -22,10 +22,6 @@ const ProvidersList = () => {
   const [search, setSearch] = useState({ city: "", profession: "" });
   // context hívása
   const {cities,professions} = useContext(InputContext)
-  // input változásának kezelése
-  const handleClick = () => {
-    setSearch({ city: city, profession: profession });
-  };
   // szakemberek lekérés a szervertől
   async function fetchProviders() {
     await axios
@@ -36,6 +32,10 @@ const ProvidersList = () => {
       })
       .catch((error) => console.log(error));
   }
+  // input változásának kezelése
+  const handleClick = () => {
+    setSearch({ city: city, profession: profession });
+  };
   // szakember adatok lekérésének hívása, betöltéskor, és ha változik a search
   useEffect(() => {
     fetchProviders();

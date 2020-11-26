@@ -10,7 +10,7 @@ import axios from "axios";
 import InputField from '../../components/InputField'
 import TextField from '../../components/TextField'
 import useInputs from '../../components/customHooks/useInputs'
-import validateContact from '../../components/customHooks/validations/validateContact'
+import validate from '../../components/customHooks/validations/validateContact'
 
 const Contact = () => {
   const [values, setValues] = useState({
@@ -37,7 +37,7 @@ const Contact = () => {
   };
 
   const { handleChange, handleSubmit, errors } = useInputs(
-    validateContact,
+    validate,
     values,
     setValues,
     sendData

@@ -12,9 +12,8 @@
   &__container {
     grid-column: 2/3;
     grid-row: 2/3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-self: center;
+    align-self: center;
     .provider-card {
       background-color: #fff;
       min-height: 600px;
@@ -61,7 +60,7 @@
       }
     }
     .list {
-      width: 60%;
+      max-width: 1200px;
     }
     .categories {
       max-width: 1200px;

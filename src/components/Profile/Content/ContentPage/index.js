@@ -1,7 +1,7 @@
 import React from "react";
-import Description from "./description";
+import Description from "./Description";
 import Gallery from "./Gallery/gallery";
-import Rating from "./rating";
+import Rating from "./Rating";
 
 const ContentPage = ({ step, user }) => {
   switch (step) {

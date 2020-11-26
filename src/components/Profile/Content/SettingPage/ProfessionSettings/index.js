@@ -23,6 +23,20 @@ const ProfessionSettings = ({ professions, user, setUser }) => {
 
   const handleSave = () => {
     setUser({ ...user, professions: professionsData });
+    const sendData = () => {
+      axios
+        .post("url", {
+          user: {
+              professions: user.professions
+          },
+        })
+        .then((response) => {
+          console.log("elküldve");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
   };
   const handleAddProfession = () => {
     professionsData.push(profession);

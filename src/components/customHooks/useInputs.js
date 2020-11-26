@@ -22,7 +22,7 @@ const useInputs = (validate, values, setValues, sendData) => {
 
   useEffect(() => {
       if (Object.keys(errors).length === 0 && isSubmitting) {
-        sendData()
+        sendData();
       }
       // eslint-disable-next-line
   },[errors]);

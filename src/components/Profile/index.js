@@ -8,13 +8,12 @@ import StaticStar from "../StarBar";
 import Navbar from "./navbar";
 import ProfessionBadge from "../ProfessionBadge";
 import SettingPage from "./Content/SettingPage";
-import ContentPage from "./Content/SettingPage";
+import ContentPage from "./Content/ContentPage";
 
 const ProfileCard = ({ user, setUser }) => {
   const [isSetting, setSetting] = useState(false);
   const [step, setStep] = useState(1);
   const logged_in = true;
-  const identical = 1;
   const {
     id,
     firstname,
@@ -40,7 +39,7 @@ const ProfileCard = ({ user, setUser }) => {
               {`Hungary, ${city}`}
             </h2>
           </div>
-          {logged_in && id === identical ? (
+          {logged_in && id === 1 ? (
             <>
               <button
                 className="gear"

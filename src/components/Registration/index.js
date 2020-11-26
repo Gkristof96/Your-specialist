@@ -1,14 +1,17 @@
 import React from "react";
-import axios from "axios";
+import Pager from "./Pager";
 
-const Registration = () => {
+const Registration = ({setLoginActive, isLoginActive}) => {
   return (
     <>
-      <div className="registration-card">
-        <h1 className="registration-card__title">Regisztráció</h1>
-        <form>
-          <input className="btn" type="submit" value="Regisztráció" />
-        </form>
+      <div className="authentication__card registration">
+        <h1 className="title">Regisztráció</h1>
+        <Pager/>
+        <h2 className="redirect">
+          Van már felhasználód? Kattints a{" "}
+          <span onClick={() => setLoginActive(!isLoginActive)}>bejelentkezés</span>
+          hez
+        </h2>
       </div>
     </>
   );

@@ -7,7 +7,6 @@ import axios from "axios";
 const Profile = ({ handleLogout }) => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
-
   const [user, setUser] = useState({});
 
   async function fetchUser() {

@@ -1,10 +1,25 @@
 import React, { useState } from "react";
 import ImageCard from "./ImageCard";
+import axios from 'axios'
 
 const GalleryUpload = ({ gallery, user, setUser }) => {
   const [galleryData, setGallery] = useState(gallery);
   const handleSave = () => {
     setUser({ ...user, gallery: galleryData });
+    const onSubmit = (data) => {
+      axios
+        .post("url", {
+          user: {
+            gallery: user.gallery
+          },
+        })
+        .then((response) => {
+          console.log("elküldve", response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
   };
   return (
     <>

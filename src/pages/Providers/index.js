@@ -32,21 +32,24 @@ const Providers = () => {
   };
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
         <section className="providers section">
           <div className="providers__container">
             <div className={`provider-card ${showList ? "list" : "categories"}`}>
-              {showList ? (
-                <List setShowList={setShowList} data={listData} />
-              ) : (
-                <Categories providers={providers} handleClick={handleClick}/>
+              {loading ? (
+                <Loading />
+              ) : ( 
+                <>
+                {showList ? (
+                  <List setShowList={setShowList} data={listData} />
+                ) : (
+                  <Categories providers={providers} handleClick={handleClick}/>
+                )}
+                </>
+              
               )}
-            </div>
+             </div>
           </div>
         </section>
-      )}
     </>
   );
 };

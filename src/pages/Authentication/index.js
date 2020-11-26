@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import Login from '../../components/Login'
 import Registration from '../../components/Registration'
 
-const Authentication = ({ handleLogin }, props) => {
-  const [loginActive, setLoginActive] = useState(true);
+const Authentication = () => {
+  const [isLoginActive, setLoginActive] = useState(true);
   return (
     <>
       <section className="authentication section">
         <div className="authentication__container">
-          {loginActive ? (
+          {isLoginActive ? (
             <Login
-              loginActive={loginActive}
+              isLoginActive={isLoginActive}
               setLoginActive={setLoginActive}
             />
           ) : (
-            <Registration/>
+            <Registration
+              isLoginActive={isLoginActive}
+              setLoginActive={setLoginActive}
+            />
           )}
         </div>
       </section>

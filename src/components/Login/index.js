@@ -1,19 +1,48 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaExclamationTriangle } from "react-icons/fa";
 import AuthContext from "../../contexts/authContext";
 import InputField from '../InputField'
-import useAuth from '../customHooks/useInputs'
+import useInputs from '../customHooks/useInputs'
+import validate from '../customHooks/validations/validateLogin'
+import axios from 'axios'
 
-const Login = ({loginActive, setLoginActive }) => {
+const Login = ({isLoginActive, setLoginActive }) => {
+  const [values, setValues] = useState({
+    email: '',
+    password: ''
+  });
   const {handleLogin} = useContext(AuthContext);
-  const { handleChange, handleSubmit, values, errors } = useAuth(
-    handleLogin
-  );
 
+  const sendData = () => {
+    axios
+      .post("url", {
+        user: {
+          email: values.email,
+          password: values.password,
+        },
+      })
+      .then((response) => {
+        if(response.message === 'logged') {
+          handleLogin(response.data)
+        }
+        else {
+          console.log('rossz')
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const { handleChange, handleSubmit, errors } = useInputs(
+    validate,
+    values,
+    setValues,
+    sendData
+  );
   return (
     <>
-      <div className="login-card">
-        <h1 className="login-card__title">Bejelentkezés</h1>
+      <div className="authentication__card login">
+        <h1 className="title">Bejelentkezés</h1>
         <form onSubmit={handleSubmit}>
           <InputField 
             name='email' 
@@ -41,9 +70,9 @@ const Login = ({loginActive, setLoginActive }) => {
           }
           <input className="btn" type="submit" value="Bejelentkezés" />
         </form>
-        <h2 className="login-card__register-redirect">
+        <h2 className="redirect">
           Még nincs felhasználód? Kattints a{" "}
-          <span onClick={() => setLoginActive(!loginActive)}>regisztráció</span>
+          <span onClick={() => setLoginActive(!isLoginActive)}>regisztráció</span>
           hoz
         </h2>
       </div>

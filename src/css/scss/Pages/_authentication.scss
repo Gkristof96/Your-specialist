@@ -14,6 +14,83 @@
     grid-template-rows: 10% 1fr 10%;
     height: 100%;
   }
+
+  &__card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
+
+    .title {
+      width: 100%;
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      color: color(secondary);
+    }
+    form {
+      width: 80%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      
+      .input-container {
+        margin: 15px 0;
+      }
+      .checkbox {
+        margin: 15px 0;
+        color: #000;
+        span {
+          margin-left: 5px;
+        }
+      }
+    }
+    .names {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .input-container {
+        width: 45%;
+      }
+      .btn,
+      .btn-white {
+        width: 45%;
+      }
+    }
+    .btn {
+      margin: 2rem 0;
+      height: 50px;
+    }
+    .redirect {
+      font-size: 18px;
+      font-weight: 500;
+      width: 80%;
+      margin: auto;
+      color: #000;
+      span {
+        font-weight: 700;
+        color: color(secondary);
+        cursor: pointer;
+      }
+    }
+    .confirm-card {
+      width: 80%;
+      margin: auto;
+      padding: 10px;
+      background: #ccc;
+      color: #000;
+      font-family: 'Roboto', sans-serif;
+    }
+  }
+  .login {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .registration {
+    grid-column: 4/5;
+    grid-row: 2/3;
+  }
 }
 
 @media (max-width: 768px) {
@@ -21,6 +98,15 @@
     &__container {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
+    }
+    &__card {
+      justify-self: center;
+      max-width: 400px;
+    }
+    .login,
+    .registration {
+      grid-column: 1/2;
+      grid-row: 1/2;
     }
   }
 }

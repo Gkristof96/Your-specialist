@@ -3,8 +3,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import ImageItem from "./imageitem";
 import PopUp from "./popup";
 
-const Gallery = (props) => {
-  const [gallery] = useState(props.gallery);
+const Gallery = (gallery) => {
   const [visible, setVisible] = useState(false);
   const [source, setSource] = useState();
   const [x, setX] = useState(0);
@@ -38,7 +37,7 @@ const Gallery = (props) => {
         <div className="gallery__arrow--right" onClick={handleRightClick}>
           <FaAngleRight size="50" />
         </div>
-        {visible ? <PopUp setVisible={setVisible} source={source} /> : ""}
+        {visible && <PopUp setVisible={setVisible} source={source} />}
       </div>
     </>
   );

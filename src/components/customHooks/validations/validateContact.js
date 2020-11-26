@@ -1,4 +1,4 @@
-export default function validateContact(values) {
+export default function validate(values) {
     let errors = {};
   
     if (!values.email) {
