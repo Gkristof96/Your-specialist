@@ -8,7 +8,7 @@ import {
   FaWrench,
 } from "react-icons/fa";
 
-const Navbar = ({ setStep, isSetting }) => {
+const ProfileNav = ({ setStep, isSetting }) => {
   return (
     <>
       <div className="profile-card__navbar">
@@ -45,4 +45,4 @@ const Navbar = ({ setStep, isSetting }) => {
   );
 };
 
-export default Navbar;
+export default ProfileNav;

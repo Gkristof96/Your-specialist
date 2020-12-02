@@ -1,3 +1,4 @@
+// oldal főosztály
 .contact {
   background: linear-gradient(
       135deg,
@@ -6,13 +7,14 @@
     ),
     url("../Images/background.jpg") center no-repeat;
   background-size: cover;
+  // oldal tartalom
   &__container {
     grid-column: 2/3;
     grid-row: 2/3;
     display: grid;
     grid-template-columns: 5% 1.5fr 10% 1fr 5%;
     grid-template-rows: 10% 1fr 10%;
-
+    // elérhetőségi adatok
     .contact-data {
       color: #000;
       grid-column: 2/3;
@@ -24,14 +26,7 @@
       box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
       align-self: center;
       justify-self: center;
-      &__title {
-        width: 100%;
-        text-align: center;
-        color: color(secondary);
-        margin-top: 3rem;
-        margin-bottom: 1.5rem;
-        font-size: 1.8rem;
-      }
+      // tartalom
       &__container {
         height: 50%;
         width: 60%;
@@ -40,6 +35,7 @@
         flex-direction: column;
         justify-content: center;
       }
+      // elem
       &__item {
         margin: 1rem 0;
         .contact-icon {
@@ -48,58 +44,19 @@
         }
       }
     }
+    // üzenetküldő űrlap
     .contact-us {
       grid-column: 4/5;
       grid-row: 2/3;
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
-      &__title {
-        width: 100%;
-        text-align: center;
-        margin-top: 3rem;
-        margin-bottom: 1.5rem;
-        font-size: 1.8rem;
-        color: color(secondary);
-      }
+      // űrlap
       form {
         width: 80%;
         margin: auto;
         display: flex;
         flex-direction: column;
-        .btn {
-          margin: 2rem 0;
-          height: 50px;
-        }
-        p {
-          color: red;
-        }
-      }
-      &__input {
-        width: 100%;
-        height: 40px;
-        margin: 1.5rem 0;
-        padding-left: 0.5rem;
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.25);
-        &:focus {
-          outline: none;
-        }
-      }
-      &__text {
-        width: 100%;
-        max-width: 100%;
-        height: 100px;
-        margin: 1.5rem 0;
-        padding-left: 0.5rem;
-        padding-top: 0.5rem;
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.25);
-        &:focus {
-          outline: none;
-        }
       }
     }
   }
@@ -133,8 +90,5 @@
         grid-row: 2/3;
       }
     }
-  }
-  .contanct.section {
-    height: 130vh;
   }
 }

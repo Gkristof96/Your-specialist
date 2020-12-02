@@ -7,13 +7,15 @@ const Gallery = (gallery) => {
   const [visible, setVisible] = useState(false);
   const [source, setSource] = useState();
   const [x, setX] = useState(0);
-
+  // balra léptető függvény 680-al lép balra ha nem az első elemnél vagyunk
   const handleLeftClick = () => {
     x === 0 ? setX(-680 * (gallery.length - 1)) : setX(x + 680);
   };
+  // jobbra léptető függvény 680-al lép jobbra ha nem az utolsó elemnél vagyunk
   const handleRightClick = () => {
     x === -680 * (gallery.length - 1) ? setX(0) : setX(x - 680);
   };
+  // kép nagyméretű megjelenítése
   const handleVisible = (target) => {
     setVisible(!visible);
     setSource(target.src);

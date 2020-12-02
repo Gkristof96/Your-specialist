@@ -6,8 +6,9 @@ const NotFound = ({ location }) => {
     <>
       <section className="notfound section">
         <div className="notfound__container">
-          <h1 className="title">Hoppá, valami hiba történt!</h1>
+          <h1 className="error-title">Hoppá, valami hiba történt!</h1>
           <span className="subtitle">
+            {/* a location.pathname az elérési út*/}
             Az <code>{location.pathname}</code> oldal vagy nem létezik vagy
             valami hiba történt vele, kérjük probálkoz újból!
           </span>

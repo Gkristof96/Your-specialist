@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaMapMarkerAlt } from "react-icons/fa";
-
 import ProfessionBadge from "../../ProfessionBadge";
 import StaticStar from "../../StarBar";
-
 
 const ProviderCard = ({ user }) => {
   const { id, lastname, firstname, image, rate, professions, city, bio } = user;

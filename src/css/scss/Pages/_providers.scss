@@ -1,3 +1,4 @@
+// oldal főosztály
 .providers {
   width: 100%;
   min-height: 100vh;
@@ -9,11 +10,13 @@
     url("../Images/background.jpg") center no-repeat;
   background-size: cover;
   position: relative;
+  // oldal tartalom
   &__container {
     grid-column: 2/3;
     grid-row: 2/3;
     justify-self: center;
     align-self: center;
+    // szakma kártya
     .provider-card {
       background-color: #fff;
       min-height: 600px;
@@ -23,10 +26,7 @@
       border-radius: 10px;
       position: relative;
       box-shadow: 0 4px 4px 3px rgba(0, 0, 0, 0.25);
-      .title {
-        color: color(secondary);
-        margin: 2rem 0;
-      }
+      // vissza nyíl
       .back-arrow {
         position: absolute;
         top: 2rem;
@@ -36,16 +36,19 @@
         height: 50px;
         cursor: pointer;
       }
-      .providers-content {
+      // kategória osztály
+      .professions-category {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
       }
-      .professions-bar {
+      // lista osztály
+      .professions-list {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
         width: 60%;
+        // szakma elem
         .profession-item {
           padding: 1rem 2rem;
           margin: 0.5rem;
@@ -59,9 +62,11 @@
         }
       }
     }
+    // lista kártya
     .list {
       max-width: 1200px;
     }
+    // kategória kártya
     .categories {
       max-width: 1200px;
       justify-content: center;

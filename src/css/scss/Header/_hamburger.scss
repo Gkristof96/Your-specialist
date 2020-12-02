@@ -1,8 +1,3 @@
-// Functions
-@function color($color-name) {
-  @return map-get($colors, $color-name);
-}
-
 .toggle-button {
   height: 24px;
   width: 30px;

@@ -1,10 +1,14 @@
-import React from "react"
+import React, { useContext } from "react"
 import { FaExclamationTriangle } from 'react-icons/fa'
+import InputContext from '../../../contexts/inputContext'
 import InputField from "../../InputField"
-import validate from '../../customHooks/validations/validateRegother'
+import AutoSearch from '../../AutoInput'
+import validate from '../../customHooks/validations/validateRegOther'
 import useInputs from '../../customHooks/useInputs'
 
 const OtherData = ({setStep, values, setValues}) => {
+    const {cities,professions} = useContext(InputContext);
+    
     const sendData = () => {
         setStep(3);
     }
@@ -13,7 +17,7 @@ const OtherData = ({setStep, values, setValues}) => {
         values,
         setValues,
         sendData
-      );
+    );
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -29,7 +33,37 @@ const OtherData = ({setStep, values, setValues}) => {
                         {errors.tel}
                         </p>
                 }
-                <div className='names'>
+                <AutoSearch
+                  search={values.city}
+                  values={values}
+                  setValues={setValues}
+                  handlechange={handleChange}
+                  items={cities}
+                  placeholder="Település"
+                  type="city"
+                />
+                {errors.city && 
+                        <p className='error-message'>
+                        <FaExclamationTriangle/>
+                        {errors.city}
+                        </p>
+                }
+                <AutoSearch
+                  search={values.profession}
+                  values={values}
+                  setValues={setValues}
+                  handlechange={handleChange}
+                  items={professions}
+                  placeholder="Szakma"
+                  type="profession"
+                />
+                {errors.profession && 
+                        <p className='error-message'>
+                        <FaExclamationTriangle/>
+                        {errors.profession}
+                        </p>
+                }
+                <div className='horizontal-container'>
                     <button className="btn-white" onClick={() => setStep(1)}>Elöző</button>
                     <input className="btn" type="submit" value="Következő" />
                 </div>

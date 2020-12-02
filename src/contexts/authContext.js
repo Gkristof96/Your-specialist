@@ -4,20 +4,21 @@ import { useHistory } from 'react-router-dom'
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({children}) => {
+    // állapotok a felhasználó adatainak és a bejelentkezetség tárolására
     const [isLoggedIn, setLoggedIn] = useState(false)
     const [user, setUser] = useState({})
     let history = useHistory();
-
-    const handleLogin = () => {
+    // bejelentkezést végrehajtó függvény
+    const handleLogin = (data) => {
         setLoggedIn(true)
-        history.push(`/profile/2`)
-        setUser({name: 'Pista'})
+        setUser({data})
+        history.push(`/profile/${user.id}`)
     }
-
+    // kijelentkezést végrehajtó függvény
     const handleLogout = () => {
         setLoggedIn(false)
     }
-
+    // a context által átadott értékek
     const providerValue = {
         isLoggedIn,
         setLoggedIn,

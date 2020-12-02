@@ -1,10 +1,8 @@
 import React, {useContext } from "react";
 import { Link } from "react-router-dom";
-
 import DrawerToggleButton from "./Hamburger";
 import ProfileButton from './ProfileButton'
 import LoginButton from "./LoginButton";
-
 import AuthContext from "../../../contexts/authContext";
 
 const Navbar = ({ open, drawerClick }) => {
@@ -14,7 +12,7 @@ const Navbar = ({ open, drawerClick }) => {
       <nav className="navbar">
         <Link to="/" className="navbar__logo">
           <img src="../images/logo.png" alt="logo" />
-          <h1 className="title">Your specialist</h1>
+          <h1>Your specialist</h1>
         </Link>
         <div className="navbar__navigation">
           <ul>

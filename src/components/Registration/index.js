@@ -1,7 +1,7 @@
 import React from "react";
 import Pager from "./Pager";
 
-const Registration = ({setLoginActive, isLoginActive}) => {
+const Registration = ({setLoginActive}) => {
   return (
     <>
       <div className="authentication__card registration">
@@ -9,7 +9,7 @@ const Registration = ({setLoginActive, isLoginActive}) => {
         <Pager/>
         <h2 className="redirect">
           Van már felhasználód? Kattints a{" "}
-          <span onClick={() => setLoginActive(!isLoginActive)}>bejelentkezés</span>
+          <span onClick={() => setLoginActive(true)}>bejelentkezés</span>
           hez
         </h2>
       </div>

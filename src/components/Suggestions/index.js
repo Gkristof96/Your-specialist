@@ -1,9 +1,6 @@
 import React from "react";
 
 const Suggestion = ({ suggestions, suggestionChanged, display }) => {
-  if (suggestions.length === 0) {
-    return null;
-  }
   return (
     <>
       {display ? (

@@ -1,5 +1,4 @@
 import React from "react";
-
 import PersonalSettings from "./PersonalSettings";
 import ProviderSettings from "./ProfessionSettings";
 import PasswordChange from "./PasswordSettings";
@@ -14,7 +13,7 @@ const SettingPage = ({ step, user, setUser }) => {
         <ProviderSettings
           setUser={setUser}
           user={user}
-          professions={user.professions}
+          professionList={user.professions}
         />
       );
     case 3:

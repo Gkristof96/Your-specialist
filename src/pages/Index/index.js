@@ -1,36 +1,37 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-
 import AutoSearch from "../../components/AutoInput";
-
 import InputContext from '../../contexts/inputContext'
-
+import useInputs from '../../components/customHooks/useInputs'
+import validate from '../../components/customHooks/validations/validateIndex'
 
 const Index = () => {
   // állapotok deklarálása
-  const [city, setCity] = useState("");
-  const [profession, setProfession] = useState("");
+  const [values, setValues] = useState({
+    city: '',
+    profession: '',
+  })
   // context meghívása
   const {cities,professions} = useContext(InputContext);
   // history létrehozása
   let history = useHistory();
   // Keresést kezelő függvény
   const handleSearch = () => {
-    // ha mindkét adat megvan adva átírányitjuk a providers oldalra
-    if(city.length > 0 && profession.length > 0) {
-      history.push(`/providerslist?city=${city}&profession=${profession}`)
-    }
-    // ellenkező esetben hibaüzenet
-    else {
-      console.log(cities)
-    }
+      history.push(`/providerslist?city=${values.city}&profession=${values.profession}`)
   }
+  // saját horog hívása
+  const { handleChange, handleSubmit } = useInputs(
+    validate,
+    values,
+    setValues,
+    handleSearch
+  );
   return (
     <>
       <section className="hero">
         <div className="hero__container">
           <div className="main-message">
-            <h1 className="title">Hiába keresel nem találsz szakembert?</h1>
+            <h1 className="hero-title">Hiába keresel nem találsz szakembert?</h1>
             <span className="subtitle">
               Tégy egy probát nálunk, garantáljuk hogy itt megtalálod azt mester
               akire most szükséged van
@@ -41,21 +42,31 @@ const Index = () => {
       <section className="call-to-action">
         <div className="call-to-action__container">
           <AutoSearch
-            search={city}
-            setSearch={setCity}
+            search={values.city}
+            values={values}
+            setValues={setValues}
+            handlechange={handleChange}
             items={cities}
             placeholder="Település"
             type="city"
           />
           <AutoSearch
-            search={profession}
-            setSearch={setProfession}
+            search={values.profession}
+            values={values}
+            setValues={setValues}
+            handlechange={handleChange}
             items={professions}
             placeholder="Szakma"
             type="profession"
           />
-
-          <button className='btn' onClick={() => handleSearch()}>Keresés</button>
+          <form onSubmit={handleSubmit}>
+            <button 
+              className='btn'
+              type='submit'
+            >
+              Keresés
+            </button>
+          </form>
           
         </div>
       </section>

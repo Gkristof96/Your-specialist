@@ -11,7 +11,7 @@ const List = ({ data, setShowList }) => {
           onClick={() => setShowList(false)}
         />
         <h1 className="title">{`${name} Kategória Szakmái`}</h1>
-        <div className="professions-bar">
+        <div className="professions-list">
           {professions.map((data, i) => (
             <Link
               className="profession-item"

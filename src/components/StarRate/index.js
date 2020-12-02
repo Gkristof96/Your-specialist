@@ -5,11 +5,12 @@ const StarRate = ({ setRating, rating }) => {
   const [hover, setHover] = useState(null);
   return (
     <>
+      {/* 5 elemű tömb létrehozása */}
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
 
         return (
-          <label>
+          <label key={i}>
             <input
               className="input"
               type="radio"

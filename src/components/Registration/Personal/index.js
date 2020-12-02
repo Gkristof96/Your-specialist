@@ -1,7 +1,7 @@
 import React from "react"
 import { FaExclamationTriangle } from 'react-icons/fa'
 import InputField from "../../InputField"
-import validate from '../../customHooks/validations/validateRegpersonal'
+import validate from '../../customHooks/validations/validateRegPersonal'
 import useInputs from '../../customHooks/useInputs'
 
 const PersonalData = ({setStep, values, setValues}) => {
@@ -17,7 +17,7 @@ const PersonalData = ({setStep, values, setValues}) => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <div className='names'>
+                <div className='horizontal-container'>
                     <InputField
                         name='lastname' 
                         type='text' placeholder='Vezetéknév' 

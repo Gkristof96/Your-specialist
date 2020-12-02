@@ -1,61 +1,58 @@
 import React, { useState, useContext } from "react";
-
+import axios from 'axios'
+import { FaExclamationTriangle } from "react-icons/fa";
 import InputField from '../../components/InputField'
 import TextField from '../../components/TextField'
 import AutoSearch from '../../components/AutoInput'
-
-import validateContact from '../../components/customHooks/validations/validateContact'
+import validate from '../../components/customHooks/validations/validateContact'
 import useInputs from '../../components/customHooks/useInputs'
-
 import InputContext from '../../contexts/inputContext'
-import axios from 'axios'
-import {
-  FaExclamationTriangle
-} from "react-icons/fa";
-
 
 const Offer = () => {
+  // állapotok az inputok tárolására
   const [values, setValues] = useState({
     email: '',
     name: '',
-    message: ''
+    message: '',
+    city: '',
+    profession: ''
   });
-  const [city, setCity] = useState("");
-  const [profession, setProfession] = useState("");
+  // context hívása
   const {cities,professions} = useContext(InputContext)
-
-  const onSubmit = (data) => {
+  // Adatok küldése a szervernek
+  const sendData = () => {
     axios
       .post("url", {
         offer: {
-          name: data.name,
-          email: data.email,
-          description: data.description,
-          profession: profession,
-          city: city,
+          name: values.name,
+          email: values.email,
+          description: values.message,
+          profession: values.profession,
+          city: values.city,
         },
       })
       .then((response) => {
-        console.log("elküldve", response);
+        console.log("elküldve");
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
+  // saját horog hívása
   const { handleChange, handleSubmit, errors } = useInputs(
-    validateContact,
+    validate,
     values,
-    setValues
+    setValues,
+    sendData
   );
   return (
     <>
       <section className="offer section">
         <div className="offer__container">
           <div className="offer-card">
-            <h1 className="offer-card__title">Árajánlat</h1>
-            <form className='form'>
-              <InputField 
+            <h1 className="title">Árajánlat</h1>
+            <form onSubmit={handleSubmit}>
+                <InputField 
                   name='name' 
                   type='text' placeholder='Teljes Név' 
                   handleChange={handleChange} 
@@ -68,8 +65,10 @@ const Offer = () => {
                   </p>
                 }
                 <AutoSearch
-                  search={city}
-                  setSearch={setCity}
+                  search={values.city}
+                  values={values}
+                  setValues={setValues}
+                  handlechange={handleChange}
                   items={cities}
                   placeholder="Település"
                   type="city"
@@ -87,24 +86,28 @@ const Offer = () => {
                   </p>
                 }
                 <AutoSearch
-                  search={profession}
-                  setSearch={setProfession}
+                  search={values.profession}
+                  values={values}
+                  setValues={setValues}
+                  handlechange={handleChange}
                   items={professions}
                   placeholder="Szakma"
-                  type="city"
+                  type="profession"
                 />
-                <TextField 
-                  name='message' 
-                  placeholder='Üzenet' 
-                  handleChange={handleChange} 
-                  value={values.message}
-                />
-                {errors.message && 
-                  <p className='error-message'>
-                    <FaExclamationTriangle/>
-                    {errors.message}
-                  </p>
-                }
+                <div className='message'>
+                  <TextField
+                    name='message' 
+                    placeholder='Üzenet' 
+                    handleChange={handleChange} 
+                    value={values.message}
+                  />
+                  {errors.message && 
+                    <p className='error-message'>
+                      <FaExclamationTriangle/>
+                      {errors.message}
+                    </p>
+                  }
+                </div>
               <input className="btn" type="submit" value="Küldés" />
             </form>
           </div>

@@ -13,13 +13,14 @@ import useInputs from '../../components/customHooks/useInputs'
 import validate from '../../components/customHooks/validations/validateContact'
 
 const Contact = () => {
+  // állapot az inputok tárolására
   const [values, setValues] = useState({
     email: '',
     name: '',
     message: ''
   });
-
-  const sendData = () => {
+  // Adatok küldése a szervernek
+  const saveData = () => {
     axios
       .post("url", {
         message: {
@@ -35,19 +36,19 @@ const Contact = () => {
         console.log(error);
       });
   };
-
+  // saját horog hívása
   const { handleChange, handleSubmit, errors } = useInputs(
     validate,
     values,
     setValues,
-    sendData
+    saveData
   );
   return (
     <>
       <section className="contact section">
         <div className="contact__container">
           <div className="contact-data">
-            <h1 className="contact-data__title">Elérhetőségek:</h1>
+            <h1 className="title">Elérhetőségek:</h1>
             <div className="contact-data__container">
               <span className="contact-data__item">
                 <FaPhoneAlt className="contact-icon" />
@@ -67,7 +68,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="contact-us">
-            <h1 className="contact-us__title">Üzenj nekünk</h1>
+            <h1 className="title">Üzenj nekünk</h1>
             <form onSubmit={handleSubmit}>
             <InputField 
                 name='name' 

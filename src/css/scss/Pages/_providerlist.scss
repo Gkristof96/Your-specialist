@@ -1,3 +1,4 @@
+// felső design rész
 .pvheader {
   width: 100%;
   height: 40vh;
@@ -9,7 +10,7 @@
     url("../Images/background.jpg") center no-repeat;
   background-size: cover;
   position: relative;
-
+  // hullám
   &::before {
     content: "";
     width: 100%;
@@ -21,19 +22,19 @@
     background-size: cover;
   }
 }
-
+// oldal tartalom
 .pvlist {
   display: grid;
   grid-template-columns: 10% 1fr 10%;
   grid-template-rows: 1fr auto 1fr;
-
+  // keresés
   .search {
     grid-column: 2/3;
     grid-row: 1/2;
     display: grid;
     grid-template-columns: 2fr 2fr 1fr;
     grid-template-rows: 1fr;
-
+    
     .city {
       grid-column: 1/2;
       grid-row: 1/2;
@@ -51,17 +52,21 @@
       grid-row: 1/2;
       align-self: flex-start;
       justify-self: center;
+
+      padding: 10px 30px;
     }
   }
   & > div {
     width: 100%;
   }
+  // szakemberek
   .content {
     grid-column: 2/3;
     grid-row: 2/3;
     margin: 1rem 0;
     width: 100%;
   }
+  // lapozó
   .pagination {
     grid-column: 2/3;
     grid-row: 3/4;

@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { FaExclamationTriangle } from 'react-icons/fa'
-import StarRate from "../../../../StarRate";
 import axios from 'axios'
+import StarRate from "../../../../StarRate";
+import InputField from '../../../../InputField'
+import TextField from '../../../../TextField'
 import validate from '../../../../customHooks/validations/validateLogin'
 import useInputs from '../../../../customHooks/useInputs'
-import InputField from '../../../../InputField'
 
 const Rating = () => {
+  //állapotok az inputok tárolására
   const [rate, setRate] = useState();
   const [values, setValues] = useState({
     email: '',
     name: '',
     message: ''
   });
-  const sendData = () => {
+  // adatok küldése a szervernek
+  const handleData = () => {
     axios
       .post("url", {
         rate: {
@@ -30,17 +33,30 @@ const Rating = () => {
         console.log(error);
       });
   };
+  // saját horog hívása
   const { handleChange, handleSubmit, errors } = useInputs(
     validate,
     values,
     setValues,
-    sendData
+    handleData
   );
   return (
     <>
       <div className="rating">
         <h1>Értékelés</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
+          <InputField 
+            name='name' 
+            type='text' placeholder='Név' 
+            handleChange={handleChange} 
+            value={values.name}
+          />
+          {errors.name && 
+            <p className='error-message'>
+              <FaExclamationTriangle/>
+              {errors.name}
+            </p>
+          }
           <InputField 
             name='email' 
             type='text' placeholder='Email' 
@@ -53,15 +69,19 @@ const Rating = () => {
               {errors.email}
             </p>
           }
-          <div className="input-group">
-            <label>Email</label>
-            <input name="email" type="text" />
-          </div>
           <StarRate rating={rate} setRating={setRate} />
-          <div className="input-group">
-            <label>Leírás</label>
-            <textarea name="name" />
-          </div>
+          <TextField
+            name='message' 
+            placeholder='Üzenet' 
+            handleChange={handleChange} 
+            value={values.message}
+          />
+          {errors.message && 
+            <p className='error-message'>
+              <FaExclamationTriangle/>
+              {errors.message}
+            </p>
+          }
           <input className="btn" type="submit" value="Küldés" />
         </form>
       </div>

@@ -1,19 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import Header from './components/Header'
 import Index from './pages/Index'
 import Contact from './pages/Contact'
 import Providers from './pages/Providers'
-import Offer from './pages/Ajanlat'
+import Offer from './pages/Offer'
 import Profile from './pages/Profile'
 import Authentication from './pages/Authentication'
 import NotFound from './pages/404'
 import ProvidersList from './pages/ProvidersList'
-
-import "./css/style.css";
 import { AuthProvider } from "./contexts/authContext";
 import { InputProvider } from './contexts/inputContext'
+import "./css/style.css";
 
 function App() {
   return (
@@ -22,6 +20,7 @@ function App() {
         <AuthProvider>
           <Header />
           <InputProvider>
+           {/* alkalmazás elérési utak */}
           <Switch>
             <Route 
               exact 

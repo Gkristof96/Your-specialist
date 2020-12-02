@@ -4,6 +4,7 @@ import { FaStar } from "react-icons/fa";
 const StaticStar = ({ rating }) => {
   return (
     <>
+      {/* 5 elemű tömb létrehozása */}
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
 

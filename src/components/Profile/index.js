@@ -1,19 +1,21 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
 import { BsFillGearFill, BsFillHouseDoorFill } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
-
 import StaticStar from "../StarBar";
-import Navbar from "./navbar";
+import ProfileNav from './ProfileNav';
 import ProfessionBadge from "../ProfessionBadge";
 import SettingPage from "./Content/SettingPage";
 import ContentPage from "./Content/ContentPage";
 
-const ProfileCard = ({ user, setUser }) => {
+import AuthContext from '../../contexts/authContext'
+
+const ProfileCard = ({ provider, setUser }) => {
   const [isSetting, setSetting] = useState(false);
   const [step, setStep] = useState(1);
-  const logged_in = true;
+  // bejelentkezett felhasználó adatai
+  const {user} = useContext(AuthContext)
+  // adott profil adatai
   const {
     id,
     firstname,
@@ -24,7 +26,7 @@ const ProfileCard = ({ user, setUser }) => {
     rate,
     image,
     professions,
-  } = user;
+  } = provider;
   return (
     <>
       <div className="profile-card">
@@ -39,7 +41,8 @@ const ProfileCard = ({ user, setUser }) => {
               {`Hungary, ${city}`}
             </h2>
           </div>
-          {logged_in && id === 1 ? (
+          {/*Ez a menü akkor jelenik meg ha a bejelentkezett felhasználó profilja van megnyitva*/}
+          {id ===  user.id? (
             <>
               <button
                 className="gear"
@@ -83,12 +86,12 @@ const ProfileCard = ({ user, setUser }) => {
             </div>
           </div>
         </div>
-        <Navbar setStep={setStep} isSetting={isSetting} />
+        <ProfileNav setStep={setStep} isSetting={isSetting} />
         <div className="profile-card__content">
           {isSetting ? (
-            <SettingPage setUser={setUser} step={step} user={user} />
+            <SettingPage setUser={setUser} step={step} user={provider} />
           ) : (
-            <ContentPage step={step} user={user} />
+            <ContentPage step={step} user={provider} />
           )}
         </div>
       </div>

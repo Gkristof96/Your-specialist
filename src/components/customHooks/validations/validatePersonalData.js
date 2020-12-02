@@ -21,22 +21,17 @@ export default function validate(values) {
     else if (values.lastname.length > 2) {
         errors.lastname = 'Legalább 3 karakteres legyen';
     }
-    // jelszó megléte és helyes hossz
-    if(!values.password) {
-        errors.password ='Kötelező kitölteni';
+    // bemutatkozás megléte
+    if(!values.bio) {
+        errors.bio = 'Kötelező kitölteni';
     }
-    else if(values.password.length < 8) {
-        errors.password = 'Legalább 8 karakteres jelszó szükséges';
+    // telefonszám megléte
+    if(!values.tel) {
+        errors.tel ='Kötelező kitölteni';
     }
-    else if (values.password.length > 32) {
-        errors.password = 'Maximum 32 karakteres jelszó lehetséges';
-    }
-    // input megléte és egyezés az eredeti jelszóval
-    if(!values.cpassword) {
-        errors.cpassword ='Kötelező kitölteni';
-    }
-    else if(values.password !== values.cpassword) {
-        errors.cpassword ='A két jelszó nem egyezik';
+    // város megléte
+    if(!values.city) {
+        errors.city ='Kötelező kitölteni';
     }
     
     return errors;

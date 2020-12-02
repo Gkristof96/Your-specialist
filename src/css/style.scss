@@ -17,8 +17,6 @@ $colors: (
 
 // Imports
 @import "./scss/header";
-@import "./scss/media";
-@import "./scss/footer";
 @import "./scss/main";
 
 // Functions
@@ -47,7 +45,18 @@ a {
 h1 {
   font-size: 1.3rem;
 }
+
+.title {
+  width: 100%;
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      color: color(secondary);
+}
+// teli gomb
 .btn {
+  height: 50px;
   text-decoration: none;
   background-color: color(secondary);
   text-transform: uppercase;
@@ -67,6 +76,7 @@ h1 {
     border: 3px solid color(secondary);
   }
 }
+// fehér gomb
 .btn-white {
   text-decoration: none;
   height: 50px;
@@ -87,7 +97,7 @@ h1 {
     color: color(text)
   }
 }
-
+// oldal elrendezés
 .section {
   color: color(text);
   min-height: 100vh;
@@ -96,43 +106,39 @@ h1 {
   grid-template-columns: 10% 1fr 10%;
   grid-template-rows: 15% 1fr 5%;
 }
-
 @media (max-width: 768px) {
   .section {
+    height: auto;
     background: #fff;
     grid-template-columns: 5% 1fr 5%;
     grid-template-rows: 15vh 1fr 10vh;
   }
 }
+// tartalom tároló
 .container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 1rem 2rem;
 }
-
+// scrollbar 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
-  background: color(primary-lighter);
+  background: color(secondary-lighter);
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: color(primary);
-  border-radius: 2.5px;
+  background: color(secondary);
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: color(primary-dark);
-  border-radius: 5px;
+  background: color(secondary-dark);
 }
-
+// hiba üzenet
 .error-message {
   color: #3a0088;
   font-size: 14px;

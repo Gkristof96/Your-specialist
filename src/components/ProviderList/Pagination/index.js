@@ -2,6 +2,7 @@ import React from "react";
 
 const Pagination = ({ totalPosts, currentPage, paginate }) => {
   const pageNumbers = [];
+  // változó feltöltése a lapozóhoz szükséges számsorral 
   for (let i = 1; i <= Math.ceil(totalPosts / 10); i++) {
     pageNumbers.push(i);
   }

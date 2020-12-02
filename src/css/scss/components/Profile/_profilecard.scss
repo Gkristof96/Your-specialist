@@ -1,7 +1,3 @@
-@function color($color-name) {
-  @return map-get($colors, $color-name);
-}
-
 @import "./Gallery/gallery";
 @import "./Settings/personalsettings";
 @import "./Settings/passwordchange";
@@ -156,6 +152,14 @@
     height: 100%;
     overflow: auto;
     box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.25);
+
+    .description {
+      margin: 30px;
+      overflow: auto;
+      p {
+        font-size: 16px;
+      }
+    }    
   }
 }
 

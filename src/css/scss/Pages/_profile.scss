@@ -1,5 +1,5 @@
 @import "../components/Profile/profilecard";
-
+// oldal főosztály
 .profile {
   background: linear-gradient(
       135deg,
@@ -8,6 +8,7 @@
     ),
     url("../Images/background.jpg") center no-repeat;
   background-size: cover;
+  // töltési gif
   .loading {
     grid-column: 2/3;
     grid-row: 2/3;

@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { FaExclamationTriangle } from "react-icons/fa";
+import axios from 'axios'
 import AuthContext from "../../contexts/authContext";
 import InputField from '../InputField'
 import useInputs from '../customHooks/useInputs'
 import validate from '../customHooks/validations/validateLogin'
-import axios from 'axios'
 
 const Login = ({isLoginActive, setLoginActive }) => {
   const [values, setValues] = useState({

@@ -18,14 +18,33 @@ const Pager = () => {
   })
   switch (step) {
       case 1:
-        return <PersonalData values={values} setValues={setValues} setStep={setStep}/>;
+        return (
+              <PersonalData 
+                values={values} 
+                setValues={setValues} 
+                setStep={setStep}
+               />
+
+        )
       case 2:
-        return <OtherData values={values} setValues={setValues} setStep={setStep}/>;
+        return (
+              <OtherData
+                values={values} 
+                setValues={setValues} 
+                setStep={setStep}
+              />
+        )
       case 3: 
-        return <ConfirmPage values={values} setValues={setValues} setStep={setStep}/>
+        return (
+              <ConfirmPage 
+                values={values} 
+                setValues={setValues} 
+                setStep={setStep}
+              />
+              )
       default:
         break;
-      }
+  }
 }
 
 export default Pager

@@ -3,8 +3,9 @@ import Navbar from "./Navbar";
 import SideMenu from "./SideMenu";
 
 const Header = () => {
+  // állapot a menü megjelenítésének kezelésére
   const [isMenuOpen, setMenuOpen] = useState(false);
-
+  // az állapot változtatása kattintásra
   const handleClick = () => {
     setMenuOpen(!isMenuOpen);
   };

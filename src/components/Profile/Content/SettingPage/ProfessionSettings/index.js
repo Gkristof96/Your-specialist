@@ -1,34 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import axios from "axios";
 import AutoSearch from "../../../../AutoInput";
 import ProfessionBadge from "../../../../ProfessionBadge";
-import axios from "axios";
+import InputContext from '../../../../../contexts/inputContext'
+import useInputs from '../../../../customHooks/useInputs'
+import validate from '../../../../customHooks/validations/validateProfession'
 
-const ProfessionSettings = ({ professions, user, setUser }) => {
-  const [professionsData, setProfessionData] = useState(professions);
-  const [profession, setProfession] = useState("");
-  const [suggestion, setSuggestion] = useState([]);
+const ProfessionSettings = ({ professionList, user, setUser }) => {
+  const [professionsData, setProfessionData] = useState(professionList);
+  const [values, setValues] = useState({
+    profession: ''
+  });
+  const {professions} = useContext(InputContext)
 
-  async function fetchProfessions() {
-    await axios
-      .get("../data/professions.json")
-      .then((response) => {
-        setSuggestion(response.data.professions);
-      })
-      .catch((error) => console.log(error));
-  }
-
-  useEffect(() => {
-    fetchProfessions();
-  }, []);
-
-  const handleSave = () => {
+  const saveData = () => {
     setUser({ ...user, professions: professionsData });
-    const sendData = () => {
-      axios
-        .post("url", {
-          user: {
-              professions: user.professions
-          },
+    axios
+      .post("url", {
+        professions: user.professions,
         })
         .then((response) => {
           console.log("elküldve");
@@ -36,11 +25,17 @@ const ProfessionSettings = ({ professions, user, setUser }) => {
         .catch((error) => {
           console.log(error);
         });
-    };
   };
+
   const handleAddProfession = () => {
-    professionsData.push(profession);
+    professionsData.push(values.profession);
   };
+  const { handleChange, handleSubmit } = useInputs(
+    validate,
+    values,
+    setValues,
+    saveData
+  );
   return (
     <>
       <div className="profession-settings">
@@ -59,21 +54,28 @@ const ProfessionSettings = ({ professions, user, setUser }) => {
           ))}
         </div>
         <div className="profession-input">
-          <AutoSearch
-            search={profession}
-            setSearch={setProfession}
-            items={suggestion}
-            placeholder="Szakma"
-            type="profession"
-          />
+            <AutoSearch
+              search={values.profession}
+              values={values}
+              setValues={setValues}
+              handlechange={handleChange}
+              items={professions}
+              placeholder="Szakma"
+              type="profession"
+            />
           <button className="btn" onClick={() => handleAddProfession()}>
             Hozzáad
           </button>
         </div>
-
-        <button className="btn" onClick={() => handleSave()}>
-          Mentés
-        </button>
+        
+        <form onSubmit={handleSubmit}>
+            <button 
+              className='btn'
+              type='submit'
+            >
+              Mentés
+            </button>
+          </form>
       </div>
     </>
   );
